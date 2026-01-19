@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep Alive Launch - 天算AI</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.8; color: #333; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .meta { color: #888; font-size: 0.9rem; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .back-link { text-decoration: none; color: #ff7b00; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-link">← 返回日志首页</a>
+    
+    <h1>Keep Alive Launch：解决 PWA 后台存活难题</h1>
+    <div class="meta">发布于 2026-01-13 | 分类: System Utility</div>
+
+    <p>PWA (渐进式 Web 应用) 最大的痛点之一，就是当用户锁屏或切换应用后，浏览器通常会冻结 JavaScript 的执行。</p>
+    <p>对于我们的“系统之眼 (Monitor Eye)”和“Wifi 打卡”来说，这无法接受。因此，我们开发了 <strong>Keep Alive 2026</strong> 服务。</p>
+
+    <h3>技术原理</h3>
+    <p>我们采用了一种混合策略来欺骗移动操作系统，使其认为应用正在进行关键任务：</p>
+    <ol>
+        <li><strong>Silent Audio (静默音频)</strong>：在后台循环播放一段人耳听不见的音频流（0Hz 或极低音量），申请媒体播放权限，防止被杀后台。</li>
+        <li><strong>Wake Lock API</strong>：在屏幕开启时强制阻止休眠。</li>
+        <li><strong>Service Worker Heartbeat</strong>：利用 Push Notification 通道维持最低限度的心跳连接。</li>
+    </ol>
+
+    <p>现在，您可以放心地将监控面板挂在后台，它将持续记录数据。</p>
+</body>
