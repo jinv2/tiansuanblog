@@ -89,6 +89,17 @@
         .btn { display: inline-block; padding: 10px 24px; background: #000; color: #fff; text-decoration: none; border-radius: 30px; font-size: 0.9rem; font-weight: 600; }
         .btn:hover { background: var(--accent-color); }
 
+        /* --- 底部居中修正 --- */
+        footer {
+            text-align: center; /* 强制文字居中 */
+            display: block;
+            width: 100%;
+            margin-top: 80px;
+            color: #999;
+            font-size: 0.85rem;
+            padding-bottom: 40px;
+        }
+
         @media (max-width: 768px) {
             .feature-layout { grid-template-columns: 1fr; padding: 20px; }
             .video-grid { grid-template-columns: 1fr; }
@@ -132,7 +143,7 @@
         
         <div class="video-grid">
             
-            <!-- 新增：天算矩阵·智能进化 (放在最前) -->
+            <!-- 教程 1: 智能进化 (置顶) -->
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1DNkYBjEN6&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">🧬 智能进化：2026 重新定义人机协作</div>
