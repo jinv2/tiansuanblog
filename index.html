@@ -30,8 +30,10 @@
             max-width: 1000px; margin: 0 auto; padding: 0 20px;
             display: flex; justify-content: space-between; align-items: center; height: 60px;
         }
+        
+        /* Logo */
         .logo { 
-            font-weight: 700; color: #000; text-decoration: none; display: flex; align-items: center; gap: 10px;
+            font-weight: 700; color: #000; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 1.1rem;
         }
         .logo img { height: 32px; width: auto; border-radius: 6px; display: block; }
         
@@ -45,11 +47,12 @@
         /* 当前页面高亮 */
         .nav-link.active { color: var(--accent-color); }
 
-        /* 手机端适配：隐藏文字，只留图标，防止拥挤 */
+        /* 手机端适配：隐藏文字，只留图标 */
         @media (max-width: 600px) {
             .nav-text { display: none; }
             .nav-link { font-size: 1.2rem; }
             .nav-group { gap: 15px; }
+            .logo span { display: none; }
         }
 
         /* --- 内容区样式 --- */
@@ -100,9 +103,9 @@
     <!-- 统一导航栏 -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="https://tiansuanai.netlify.app/" class="logo">
                 <img src="logo.jpg" alt="Logo"> 
-                天算AI · Lab Notes
+                <span>天算AI</span>
             </a>
             
             <div class="nav-group">
@@ -130,7 +133,20 @@
 
         <div class="article-list">
 
-            <!-- 文章 1: Hebei Agent (2026-01-15) -->
+            <!-- 置顶文章: 基地漫游指南 -->
+            <a href="posts/base-guide.html" class="article-card" style="border-left: 5px solid #ff7b00;">
+                <div class="meta-row">
+                    <span class="category-tag" style="background:#333; color:#fff;">🚀 置顶推荐</span>
+                    <span class="date">2026-01-19</span>
+                </div>
+                <h2 class="article-title">天算基地漫游指南：如何高效使用三大核心板块</h2>
+                <p class="article-excerpt">
+                    新用户必读。本文详细介绍了“矩阵首页”、“实验室日志”与“影音中心”的定位与联动逻辑，助您快速上手天算 AI 生态。
+                </p>
+                <span class="read-more">阅读指南 →</span>
+            </a>
+
+            <!-- 文章 1: Hebei Agent -->
             <a href="posts/hebei-agent-release.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-release">Indie Dev</span>
@@ -143,7 +159,7 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 2: Samsara Engine (2026-01-14) -->
+            <!-- 文章 2: Samsara Engine -->
             <a href="posts/samsara-engine-release.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-dev">Core Engine</span>
@@ -156,7 +172,7 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 3: Keep Alive (2026-01-13) -->
+            <!-- 文章 3: Keep Alive -->
             <a href="posts/keep-alive-launch.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-system">System Utility</span>
@@ -169,7 +185,7 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 4: Tiansuan AI Agent (2026-01-11) -->
+            <!-- 文章 4: Tiansuan AI Agent -->
             <a href="posts/tiansuan-ai-agent.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-release">Manifesto</span>
@@ -182,7 +198,7 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 5: Wifi Checkin (2026-01-09) -->
+            <!-- 文章 5: Wifi Checkin -->
             <a href="posts/pwa-wifi-checkin.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-system">Tool Release</span>
