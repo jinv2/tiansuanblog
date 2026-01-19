@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Agent 使用指南 - 天算实验室</title>
+    <style>
+        /* --- 继承天算实验室标准设计语言 --- */
+        :root {
+            --accent-color: #ff7b00;
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --code-bg: #f5f5f7;
+            --border-color: #e5e5e5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+            background-color: var(--bg-color); color: var(--text-color);
+            margin: 0; line-height: 1.8;
+        }
+
+        /* 导航栏 */
+        nav {
+            background: rgba(255, 255, 255, 0.95); border-bottom: 1px solid var(--border-color);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .nav-container {
+            max-width: 800px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; height: 60px;
+        }
+        .logo { font-weight: 700; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;}
+        .logo img { height: 28px; width: auto; border-radius: 4px; }
+        .back-link { text-decoration: none; color: #666; font-size: 0.9rem; font-weight: 600; }
+        .back-link:hover { color: var(--accent-color); }
+
+        /* 文章容器 */
+        .article-container { max-width: 700px; margin: 0 auto; padding: 60px 20px; }
+
+        /* 标题区 */
+        header { margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
+        h1 { font-size: 2.2rem; margin: 0 0 15px 0; letter-spacing: -0.5px; line-height: 1.3; }
+        .meta { color: #888; font-size: 0.9rem; display: flex; gap: 15px; align-items: center; }
+        .tag { background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 4px; font-weight: 500; font-size: 0.8rem; }
+
+        /* 正文样式 */
+        h2 { margin-top: 50px; font-size: 1.5rem; color: #000; }
+        h3 { margin-top: 30px; font-size: 1.2rem; color: #333; }
+        p { color: #444; margin-bottom: 20px; font-size: 1.05rem; }
+        
+        ul, ol { margin-bottom: 25px; color: #444; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        /* 重点提示框 */
+        .info-box {
+            background: #fff8e1; border-left: 4px solid #ffb300;
+            padding: 20px; margin: 30px 0; border-radius: 4px; color: #5d4037;
+        }
+        
+        /* 代码块样式 */
+        code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: #d63384; }
+        pre {
+            background: #2d2d2d; color: #eee; padding: 20px; border-radius: 8px;
+            overflow-x: auto; font-family: monospace; line-height: 1.5;
+        }
+
+        /* 按钮模拟 */
+        .btn-link {
+            display: inline-block; background: var(--accent-color); color: #fff; text-decoration: none;
+            padding: 10px 25px; border-radius: 50px; font-weight: 600; margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(255, 123, 0, 0.3); transition: transform 0.2s;
+        }
+        .btn-link:hover { transform: translateY(-2px); }
+
+        footer { margin-top: 80px; text-align: center; color: #999; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="https://tiansuanai.netlify.app/" class="logo">
+                <img src="../logo.jpg" alt="Logo"> 
+                <span>天算AI</span>
+            </a>
+            <a href="https://tiansuanblog.netlify.app/" class="back-link">← 返回日志首页</a>
+        </div>
+    </nav>
+
+    <article class="article-container">
+        <header>
+            <h1>AI Music Agent 使用指南：基于逻辑推理的智能配器</h1>
+            <div class="meta">
+                <span class="tag">Music Tech</span>
+                <span>2026-01-20</span>
+                <span>By Tiansuan Lab</span>
+            </div>
+        </header>
+
+        <p>
+            <strong>AI Music Agent (智能配器大师)</strong> 是天算实验室发布的首款“基于逻辑推理”的音乐生产力工具。与生成式音频（如 Suno）不同，本工具侧重于<strong>乐理结构的严谨性</strong>，能够协助作曲家、学生和音乐爱好者快速完成四部和声（SATB）的编写。
+        </p>
+
+        <a href="https://music-agent-pwa.netlify.app/" target="_blank" class="btn-link">启动 Music Agent →</a>
+
+        <h2>🎶 核心功能</h2>
+        <ul>
+            <li><strong>逻辑推理编曲：</strong> 不仅仅是随机生成，而是遵循传统和声学规则（避免平行五度、导音解决等）。</li>
+            <li><strong>四部和声生成：</strong> 输入单旋律，自动补全 Soprano, Alto, Tenor, Bass 声部。</li>
+            <li><strong>ABC 记谱法支持：</strong> 采用国际通用的文本记谱标准，方便二次编辑和导出。</li>
+            <li><strong>BYOK 模式：</strong> 用户自定义密钥，零成本、无限制使用。</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>隐私安全声明：</strong> 
+            本应用采用纯客户端 + Serverless 架构。您的 API Key 仅保存在您浏览器的本地存储 (Local Storage) 中，绝不会上传至我们的数据库，也不会被第三方获取。
+        </div>
+
+        <h2>🛠️ 准备工作：获取算力密钥</h2>
+        <p>Music Agent 的大脑由 <strong>DeepSeek V3</strong> 大模型驱动。在使用前，您需要配置自己的 API Key（BYOK 模式）。</p>
+        <ol>
+            <li>访问 <a href="https://platform.deepseek.com/" target="_blank">DeepSeek 开放平台</a> 并注册账号。</li>
+            <li>在后台找到 <strong>API keys</strong> 菜单，点击创建新的 Key。</li>
+            <li>复制以 <code>sk-</code> 开头的字符串。</li>
+            <li>打开 Music Agent，将密钥粘贴在顶部的 <strong>"DeepSeek API Key"</strong> 输入框中。</li>
+            <li><em>注：系统会自动记住您的密钥，下次无需重复输入。</em></li>
+        </ol>
+
+        <h2>🎹 操作流程</h2>
+
+        <h3>步骤 1：输入主旋律</h3>
+        <p>在 <strong>"主旋律 (ABC记谱法)"</strong> 的输入框中，输入您创作的旋律。我们使用简洁的 ABC 代码：</p>
+        <ul>
+            <li><strong>音高：</strong> <code>C D E F G A B</code> 代表中音，<code>c d e f g a b</code> 代表高音。</li>
+            <li><strong>时值：</strong> 默认是四分音符。<code>C2</code> 代表二分音符（加长），<code>C/2</code> 代表八分音符（减半）。</li>
+            <li><strong>小节线：</strong> 使用 <code>|</code> 符号分隔。</li>
+        </ul>
+
+        <p><strong>示例代码：</strong></p>
+        <pre><code>C D E F | G2 G2 | A A B B | c4</code></pre>
+        <p><em>(这代表：Do Re Mi Fa | Sol(二分) Sol(二分) | La La Si Si | High Do(全音符))</em></p>
+
+        <h3>步骤 2：激活智能体</h3>
+        <p>点击蓝色的 <strong>"✨ 开始智能编曲"</strong> 按钮。</p>
+        <p>此时，智能体（Agent）会读取您的旋律，进行以下思考：</p>
+        <ol>
+            <li>分析旋律的调性（Key）。</li>
+            <li>构建和弦进行（Progression，如 I-IV-V-I）。</li>
+            <li>根据四部和声规则，分配各个声部的音符。</li>
+            <li>检查是否有声部跨越或禁忌的平行进行。</li>
+        </ol>
+
+        <h3>步骤 3：获取乐谱</h3>
+        <p>等待约 3-5 秒后，屏幕下方会自动渲染出完整的 <strong>四行五线谱</strong>。</p>
+        <ul>
+            <li>第一行：Soprano (女高音/主旋律)</li>
+            <li>第二行：Alto (女低音)</li>
+            <li>第三行：Tenor (男高音)</li>
+            <li>第四行：Bass (男低音)</li>
+        </ul>
+        <p>您可以直接截图保存，或者复制返回的 ABC 代码到专业的打谱软件（如 MuseScore, Sibelius）中进行进一步制作。</p>
+
+        <h2>💡 进阶技巧</h2>
+        <h3>如何获得更好的结果？</h3>
+        <p>智能体对<strong>节奏规整</strong>的旋律处理效果最好。建议输入的旋律尽量符合 4/4 拍的结构。如果您的旋律比较复杂，可以尝试将其拆分为 4-8 小节的乐句，分段生成。</p>
+
+        <h3>常见问题 (FAQ)</h3>
+        <p><strong>Q: 为什么点击生成后没有反应？</strong><br>
+        A: 请检查 API Key 是否正确，或者您的 DeepSeek 账户余额是否充足（虽然极其便宜，但不能为零）。</p>
+
+        <p><strong>Q: 生成的和声不喜欢怎么办？</strong><br>
+        A: 再次点击生成按钮。智能体每次的推理路径略有不同，就像让作曲家重写一次作业，您可能会得到完全不同的配器灵感。</p>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 50px 0;">
+
+        <footer>
+            &copy; 2026 天算AI科技研发实验室 (Natural Algorithm R&D Lab)<br>
+            <a href="https://music-agent-pwa.netlify.app/" style="color:var(--accent-color); text-decoration:none;">再次打开 Music Agent</a>
+        </footer>
+    </article>
+
+</body>
