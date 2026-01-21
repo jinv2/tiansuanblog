@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>专属行业AI智能体</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #2563eb;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .output {
+      background: #f1f5f9;
+      padding: 15px;
+      border-radius: 6px;
+      white-space: pre-line;
+      min-height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>专属行业AI智能体</h1>
+
+    <label for="industry">选择行业：</label>
+    <select id="industry">
+      <option value="音乐">音乐</option>
+      <option value="影视">影视</option>
+    </select>
+
+    <label for="prompt">输入你的专业需求：</label>
+    <textarea id="prompt" rows="4" placeholder="例如旋律、剪辑或混音风格"></textarea>
+
+    <button id="generateBtn">生成专业建议</button>
+
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('generateBtn');
+    const output = document.getElementById('output');
+
+    btn.addEventListener('click', async () => {
+      const industry = document.getElementById('industry').value;
+      const prompt = document.getElementById('prompt').value.trim();
+      if (!prompt) {
+        alert("请填写专业需求！");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "生成中...";
+      output.textContent = "";
+
+      try {
+        const res = await fetch("/.netlify/functions/industryAI", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ industry, prompt }),
+        });
+
+        const data = await res.json();
+        if (data.output) {
+          output.textContent = data.output;
+        } else if (data.error) {
+          output.textContent = "错误：" + data.error;
+        } else {
+          output.textContent = "未收到响应";
+        }
+      } catch (err) {
+        output.textContent = "请求失败：" + err.message;
+      }
+
+      btn.disabled = false;
+      btn.textContent = "生成专业建议";
+    });
+  </script>
+</body>
+</html>
