@@ -75,7 +75,6 @@
             transition: all 0.2s ease;
             background: #fff;
         }
-        /* 修改 hover 效果，仅当它是链接时才变色，或者保持微弱阴影 */
         .article-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
@@ -87,22 +86,20 @@
         
         /* 标签颜色系统 */
         .category-tag { padding: 2px 8px; border-radius: 4px; font-weight: 500; }
-        .tag-release { background: #e8f5e9; color: #2e7d32; } /* 绿色: 发布 */
-        .tag-dev { background: #e3f2fd; color: #1565c0; } /* 蓝色: 开发/引擎 */
-        .tag-system { background: #f3e5f5; color: #7b1fa2; } /* 紫色: 系统/运维 */
-        .tag-doc { background: #fff3e0; color: #ef6c00; } /* 橙色: 文档 */
+        .tag-release { background: #e8f5e9; color: #2e7d32; }
+        .tag-dev { background: #e3f2fd; color: #1565c0; }
+        .tag-system { background: #f3e5f5; color: #7b1fa2; }
+        .tag-doc { background: #fff3e0; color: #ef6c00; }
 
         .article-title { margin: 0 0 10px 0; font-size: 1.4rem; font-weight: 700; line-height: 1.3; }
         .article-excerpt { color: #555; margin: 0; font-size: 1rem; }
         
-        /* 修改 read-more 样式以适应双按钮 */
         .read-more { 
             margin-top: 15px; color: var(--accent-color); font-weight: 600; font-size: 0.9rem; display: inline-block;
-            text-decoration: none; /* 移除下划线 */
+            text-decoration: none;
         }
         .read-more:hover { text-decoration: underline; }
         
-        /* 次级按钮样式 */
         .read-more-secondary {
             color: #666; margin-left: 20px; font-weight: 600; font-size: 0.9rem; text-decoration: none;
         }
@@ -125,12 +122,9 @@
                 <a href="https://tiansuanai.netlify.app/" class="nav-link">
                     🏠 <span class="nav-text">矩阵首页</span>
                 </a>
-                
-                <!-- 当前页是日志，标记为 active -->
                 <a href="https://tiansuanblog.netlify.app/" class="nav-link active">
                     📘 <span class="nav-text">实验室日志</span>
                 </a>
-                
                 <a href="https://tiansuanblog.netlify.app/video-gallery.html" class="nav-link">
                     🎬 <span class="nav-text">影音中心</span>
                 </a>
@@ -146,7 +140,7 @@
 
         <div class="article-list">
 
-            <!-- 置顶文章: 基地漫游指南 -->
+            <!-- 置顶文章 -->
             <a href="posts/base-guide.html" class="article-card" style="border-left: 5px solid #ff7b00;">
                 <div class="meta-row">
                     <span class="category-tag" style="background:#333; color:#fff;">🚀 置顶推荐</span>
@@ -159,7 +153,7 @@
                 <span class="read-more">阅读指南 →</span>
             </a>
 
-            <!-- ========== NEW: AI Music Agent (三按钮模式) ========== -->
+            <!-- AI Music Agent -->
             <div class="article-card"> 
                 <div class="meta-row">
                     <span class="category-tag tag-release">Music Tech</span>
@@ -170,19 +164,26 @@
                     首个“只有智能体能做”的音乐生产力工具。输入主旋律，智能体通过乐理逻辑推理，自动补全四部和声 (SATB) 与配器。集成 BYOK 模式，支持用户自定义 DeepSeek 密钥，实现零成本无限扩展。
                 </p>
                 <div style="margin-top: 20px;">
-                    <!-- 按钮 1：启动工具 -->
                     <a href="https://music-agent-pwa.netlify.app/" target="_blank" class="read-more">🚀 立即启动工具</a>
-                    
-                    <!-- 按钮 2：阅读教程 -->
                     <a href="posts/music-agent-guide.html" class="read-more-secondary">📖 阅读使用教程</a>
-
-                    <!-- 按钮 3：查看视频 (新增) -->
                     <a href="video-gallery.html" class="read-more-secondary">🎬 查看视频演示</a>
                 </div>
             </div>
-            <!-- ==================================================== -->
 
-            <!-- 文章 1: Hebei Agent -->
+            <!-- DeepSeek AI Agent 使用说明 -->
+            <a href="posts/deepseek-ai-agent-guide.html" class="article-card">
+                <div class="meta-row">
+                    <span class="category-tag tag-doc">Documentation</span>
+                    <span class="date">2026-01-21</span>
+                </div>
+                <h2 class="article-title">DeepSeek AI Agent 使用说明</h2>
+                <p class="article-excerpt">
+                    专属行业AI智能体使用说明，指导客户在音乐或影视行业快速生成专业建议，无需接触 API 或配置技术。
+                </p>
+                <span class="read-more">阅读全文 →</span>
+            </a>
+
+            <!-- 文章 1 -->
             <a href="posts/hebei-agent-release.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-release">Indie Dev</span>
@@ -195,7 +196,7 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 2: Samsara Engine -->
+            <!-- 文章 2 -->
             <a href="posts/samsara-engine-release.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-dev">Core Engine</span>
@@ -208,7 +209,7 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 3: Keep Alive -->
+            <!-- 文章 3 -->
             <a href="posts/keep-alive-launch.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-system">System Utility</span>
@@ -221,7 +222,7 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 4: Tiansuan AI Agent -->
+            <!-- 文章 4 -->
             <a href="posts/tiansuan-ai-agent.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-release">Manifesto</span>
@@ -234,7 +235,7 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 5: Wifi Checkin -->
+            <!-- 文章 5 -->
             <a href="posts/pwa-wifi-checkin.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-system">Tool Release</span>
@@ -264,3 +265,4 @@
     </div>
 
 </body>
+</html>
