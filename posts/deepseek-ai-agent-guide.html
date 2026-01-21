@@ -3,103 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专属行业AI智能体使用说明（音乐 / 影视）</title>
+    <title>DeepSeek 专属行业AI智能体使用指南 - 天算实验室</title>
     <style>
+        /* --- 继承天算实验室标准设计语言 --- */
+        :root {
+            --accent-color: #ff7b00;
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --code-bg: #f5f5f7;
+            --border-color: #e5e5e5;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
-            background-color: #f9f9f9;
-            color: #1a1a1a;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            background-color: var(--bg-color); color: var(--text-color);
+            margin: 0; line-height: 1.8;
         }
-        .container {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 0 20px;
+
+        /* 导航栏 */
+        nav {
+            background: rgba(255, 255, 255, 0.95); border-bottom: 1px solid var(--border-color);
+            position: sticky; top: 0; z-index: 1000;
         }
-        h1 {
-            color: #ff7b00;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-align: center;
+        .nav-container {
+            max-width: 800px; margin: 0 auto; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center; height: 60px;
         }
-        h2 {
-            color: #333;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
+        .logo { font-weight: 700; color: #000; text-decoration: none; display: flex; align-items: center; gap: 8px;}
+        .logo img { height: 28px; width: auto; border-radius: 4px; }
+        .back-link { text-decoration: none; color: #666; font-size: 0.9rem; font-weight: 600; }
+        .back-link:hover { color: var(--accent-color); }
+
+        /* 文章容器 */
+        .article-container { max-width: 700px; margin: 0 auto; padding: 60px 20px; }
+
+        /* 标题区 */
+        header { margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
+        h1 { font-size: 2.2rem; margin: 0 0 15px 0; letter-spacing: -0.5px; line-height: 1.3; }
+        .meta { color: #888; font-size: 0.9rem; display: flex; gap: 15px; align-items: center; }
+        .tag { background: #e8f5e9; color: #2e7d32; padding: 2px 8px; border-radius: 4px; font-weight: 500; font-size: 0.8rem; }
+
+        /* 正文样式 */
+        h2 { margin-top: 50px; font-size: 1.5rem; color: #000; }
+        h3 { margin-top: 30px; font-size: 1.2rem; color: #333; }
+        p { color: #444; margin-bottom: 20px; font-size: 1.05rem; }
+        ul, ol { margin-bottom: 25px; color: #444; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        /* 重点提示框 */
+        .info-box {
+            background: #fff8e1; border-left: 4px solid #ffb300;
+            padding: 20px; margin: 30px 0; border-radius: 4px; color: #5d4037;
         }
-        p {
-            margin-bottom: 15px;
-            font-size: 1rem;
+
+        /* 代码块样式 */
+        code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: #d63384; }
+        pre {
+            background: #2d2d2d; color: #eee; padding: 20px; border-radius: 8px;
+            overflow-x: auto; font-family: monospace; line-height: 1.5;
         }
-        a {
-            color: #ff7b00;
-            text-decoration: none;
+
+        /* 按钮模拟 */
+        .btn-link {
+            display: inline-block; background: var(--accent-color); color: #fff; text-decoration: none;
+            padding: 10px 25px; border-radius: 50px; font-weight: 600; margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(255, 123, 0, 0.3); transition: transform 0.2s;
         }
-        a:hover {
-            text-decoration: underline;
-        }
-        ol {
-            margin-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        footer {
-            margin-top: 60px;
-            text-align: center;
-            color: #999;
-            font-size: 0.85rem;
-            padding-bottom: 40px;
-        }
+        .btn-link:hover { transform: translateY(-2px); }
+
+        footer { margin-top: 80px; text-align: center; color: #999; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 40px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>专属行业AI智能体使用说明（音乐 / 影视）</h1>
-        <p>欢迎使用我们的音乐与影视行业AI智能体。本说明面向非技术客户，帮助您快速上手，获得专业创作建议和行业参考。</p>
 
-        <h2>1. 打开智能体页面</h2>
-        <p>访问以下页面，开始使用您的专属行业AI智能体：</p>
-        <p><a href="https://industryai2.netlify.app/" target="_blank">https://industryai2.netlify.app/</a></p>
+    <nav>
+        <div class="nav-container">
+            <a href="https://tiansuanai.netlify.app/" class="logo">
+                <img src="../logo.jpg" alt="Logo"> 
+                <span>天算AI</span>
+            </a>
+            <a href="https://tiansuanblog.netlify.app/" class="back-link">← 返回日志首页</a>
+        </div>
+    </nav>
 
-        <h2>2. 选择行业</h2>
-        <p>在页面上，您会看到“选择行业”下拉框，支持如下选项：</p>
+    <article class="article-container">
+        <header>
+            <h1>DeepSeek 专属行业AI智能体使用指南（音乐 / 影视）</h1>
+            <div class="meta">
+                <span class="tag">DeepSeek AI</span>
+                <span>2026-01-21</span>
+                <span>By Tiansuan Lab</span>
+            </div>
+        </header>
+
+        <p>
+            <strong>DeepSeek 专属行业 AI 智能体</strong> 是天算实验室针对音乐和影视创作者推出的专业生产力工具。
+            它利用 <strong>DeepSeek API</strong> 提供行业级智能建议，帮助您快速生成旋律、剪辑或混音风格方案，实现创作效率最大化。
+        </p>
+
+        <a href="https://industryai2.netlify.app/" target="_blank" class="btn-link">启动 DeepSeek 智能体 →</a>
+
+        <h2>📌 核心功能</h2>
         <ul>
-            <li><strong>音乐</strong>：生成旋律、和声、混音、编曲、剪辑风格等专业建议。</li>
-            <li><strong>影视</strong>：生成分镜、剪辑顺序、剧情优化方案等建议。</li>
+            <li><strong>专业建议生成：</strong> 根据输入的创作需求，智能体提供旋律、剪辑、混音等专业建议。</li>
+            <li><strong>行业定制：</strong> 适用于音乐、影视和其他内容创作场景。</li>
+            <li><strong>BYOK 模式：</strong> 用户可配置自己的 DeepSeek API Key，实现无限制调用。</li>
+            <li><strong>纯客户端设计：</strong> 无数据上传到服务器，保护隐私安全。</li>
         </ul>
 
-        <h2>3. 输入您的创作需求</h2>
-        <p>在文本框中填写您的具体需求，例如：</p>
-        <ul>
-            <li>音乐：请生成一段主旋律，并自动补全和声与配器。</li>
-            <li>影视：短片剧情是侦探寻找线索，建议如何调整场景顺序，增强悬念感。</li>
-        </ul>
+        <div class="info-box">
+            <strong>隐私安全声明：</strong> 
+            您的 API Key 仅保存在浏览器本地存储，绝不会上传至我们的数据库，也不会被第三方获取。
+        </div>
 
-        <h2>4. 点击“生成专业建议”</h2>
-        <p>智能体会基于您的输入和行业知识，生成详细建议，帮助您创作或优化作品。</p>
-
-        <h2>5. 查看与应用结果</h2>
-        <p>生成结果会显示在页面下方，您可以：</p>
+        <h2>🛠️ 快速上手</h2>
         <ol>
-            <li>复制文本用于参考或创作</li>
-            <li>结合项目实际进行修改优化</li>
-            <li>多次输入不同需求获取更多建议</li>
+            <li>访问 <a href="https://platform.deepseek.com/" target="_blank">DeepSeek 平台</a> 并注册账号。</li>
+            <li>在后台创建新的 API Key（以 <code>sk-</code> 开头）。</li>
+            <li>打开 DeepSeek 智能体，将密钥粘贴到顶部输入框。</li>
+            <li>输入您的创作需求，如旋律或剪辑风格。</li>
+            <li>点击“生成建议”，智能体会快速返回专业方案。</li>
         </ol>
 
-        <h2>注意事项</h2>
+        <h2>💡 使用技巧</h2>
         <ul>
-            <li>智能体内部使用 DeepSeek API 完成运算，无需客户配置或技术操作。</li>
-            <li>输入尽量清晰具体，越具体得到的建议越精准。</li>
-            <li>智能体为辅助创作工具，建议结合人工判断使用。</li>
+            <li>尽量提供明确的创作需求和风格描述，智能体生成结果更精准。</li>
+            <li>可分段输入复杂项目，让智能体逐步优化建议。</li>
+            <li>结合现有素材进行二次编辑，提升作品个性化。</li>
         </ul>
 
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 50px 0;">
+
         <footer>
-            &copy; 2026 音乐与影视行业AI智能体
+            &copy; 2026 天算AI科技研发实验室 (Natural Algorithm R&D Lab)<br>
+            <a href="https://industryai2.netlify.app/" style="color:var(--accent-color); text-decoration:none;">再次打开 DeepSeek 智能体</a>
         </footer>
-    </div>
+    </article>
+
 </body>
 </html>
