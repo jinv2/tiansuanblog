@@ -3,128 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>专属行业AI智能体</title>
+  <title>专属行业AI智能体使用说明</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f4f6;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #f9fafb;
       margin: 0;
       padding: 0;
+      color: #111827;
+      line-height: 1.6;
     }
 
     .container {
-      max-width: 700px;
+      max-width: 800px;
       margin: 50px auto;
-      background: #fff;
-      padding: 30px;
+      background-color: #ffffff;
+      padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     }
 
     h1 {
       text-align: center;
-      font-size: 28px;
+      color: #1f2937;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    h2 {
+      color: #111827;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 24px;
+      border-left: 4px solid #2563eb;
+      padding-left: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    ul {
+      margin-left: 20px;
       margin-bottom: 20px;
     }
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
+    a {
+      color: #2563eb;
+      text-decoration: none;
     }
 
-    select, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #2563eb;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #1d4ed8;
-    }
-
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .output {
-      background: #f1f5f9;
-      padding: 15px;
-      border-radius: 6px;
-      white-space: pre-line;
-      min-height: 80px;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>专属行业AI智能体</h1>
+    <h1>专属行业AI智能体 使用说明</h1>
 
-    <label for="industry">选择行业：</label>
-    <select id="industry">
-      <option value="音乐">音乐</option>
-      <option value="影视">影视</option>
-    </select>
+    <h2>1. 打开智能体页面</h2>
+    <p>访问以下页面，开始使用专属行业AI智能体：</p>
+    <p><a href="https://tiansuanblog.netlify.app/" target="_blank">https://tiansuanblog.netlify.app/</a></p>
 
-    <label for="prompt">输入你的专业需求：</label>
-    <textarea id="prompt" rows="4" placeholder="例如旋律、剪辑或混音风格"></textarea>
+    <h2>2. 选择行业</h2>
+    <p>在页面中选择你所在的行业，目前支持：</p>
+    <ul>
+      <li>音乐：为作曲、混音、母带等提供专业建议</li>
+      <li>影视：为短片、剪辑、分镜提供专业建议</li>
+    </ul>
 
-    <button id="generateBtn">生成专业建议</button>
+    <h2>3. 输入专业需求</h2>
+    <p>在输入框中描述你的具体需求，例如：</p>
+    <ul>
+      <li>音乐示例：“帮我生成一段欢快的电子音乐旋律，适合短视频背景。”</li>
+      <li>影视示例：“我的短片是侦探故事，请建议如何调整场景顺序增加悬念。”</li>
+    </ul>
 
-    <div class="output" id="output"></div>
+    <h2>4. 获取专业建议</h2>
+    <p>点击“生成专业建议”按钮，系统会根据你的需求快速生成专业级建议。</p>
+
+    <h2>5. 查看结果</h2>
+    <p>生成的建议会显示在页面下方，你可以直接参考并应用到你的作品中。</p>
+
+    <h2>6. 使用提示</h2>
+    <ul>
+      <li>尽量提供详细需求，AI 输出会更精准</li>
+      <li>可尝试多次不同描述，获取多种专业建议</li>
+      <li>当前支持行业为音乐和影视，将来可能会扩展更多行业</li>
+    </ul>
+
+    <p>只需打开页面、选择行业、输入需求、点击生成，即可轻松获得专业建议，无需任何技术操作。</p>
   </div>
-
-  <script>
-    const btn = document.getElementById('generateBtn');
-    const output = document.getElementById('output');
-
-    btn.addEventListener('click', async () => {
-      const industry = document.getElementById('industry').value;
-      const prompt = document.getElementById('prompt').value.trim();
-      if (!prompt) {
-        alert("请填写专业需求！");
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = "生成中...";
-      output.textContent = "";
-
-      try {
-        const res = await fetch("/.netlify/functions/industryAI", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ industry, prompt }),
-        });
-
-        const data = await res.json();
-        if (data.output) {
-          output.textContent = data.output;
-        } else if (data.error) {
-          output.textContent = "错误：" + data.error;
-        } else {
-          output.textContent = "未收到响应";
-        }
-      } catch (err) {
-        output.textContent = "请求失败：" + err.message;
-      }
-
-      btn.disabled = false;
-      btn.textContent = "生成专业建议";
-    });
-  </script>
 </body>
 </html>
