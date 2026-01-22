@@ -137,7 +137,7 @@ cat > index.html << 'EOF'
         <header class="page-header">
             <h1>实验室日志 & 发布记录</h1>
             <p>Documentation, Engineering & Releases</p>
-            </header>
+        </header>
 
         <div class="article-list">
 
@@ -204,7 +204,7 @@ cat > index.html << 'EOF'
                 </div>
             </div>
 
-            <a href="posts/hebei-agent-release.html" class="article-card">
+            <div class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-release">Indie Dev</span>
                     <span class="date">2026-01-15</span>
@@ -213,11 +213,12 @@ cat > index.html << 'EOF'
                 <p class="article-excerpt">
                     AlterEgo Life 系列迎来首个地方文旅版本。我们不仅仅是做攻略，而是用 AI 模拟了一个平行世界的河北。
                 </p>
-                <div style="margin-top: 15px;">
-                    <span class="read-more">阅读全文 →</span>
+                <div style="margin-top: 20px;">
+                    <a href="https://alterego-life.netlify.app/" target="_blank" class="read-more">🚀 启动体验</a>
+                    <a href="posts/hebei-agent-release.html" class="read-more-secondary">📖 阅读全文</a>
                     <object><a href="https://www.bilibili.com/video/BV1Aik8BbEWq" target="_blank" class="read-more-secondary">🎬 观看文旅演示</a></object>
                 </div>
-            </a>
+            </div>
 
             <a href="posts/samsara-engine-release.html" class="article-card">
                 <div class="meta-row">
@@ -234,7 +235,7 @@ cat > index.html << 'EOF'
                 </div>
             </a>
 
-            <a href="posts/keep-alive-launch.html" class="article-card">
+            <div class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-system">System Utility</span>
                     <span class="date">2026-01-13</span>
@@ -243,11 +244,12 @@ cat > index.html << 'EOF'
                 <p class="article-excerpt">
                     在 iOS 和 Android 上保持 PWA 的持续运行一直是个挑战。我们发布了 Keep Alive 服务，通过静默音频流与心跳检测保活。
                 </p>
-                <div style="margin-top: 15px;">
-                    <span class="read-more">阅读全文 →</span>
+                <div style="margin-top: 20px;">
+                    <a href="https://keep-alive-pwa.netlify.app/" target="_blank" class="read-more">🚀 启动服务</a>
+                    <a href="posts/keep-alive-launch.html" class="read-more-secondary">📖 阅读全文</a>
                     <object><a href="https://www.bilibili.com/video/BV1SMkYB5Es5" target="_blank" class="read-more-secondary">🎬 观看保活演示</a></object>
                 </div>
-            </a>
+            </div>
 
             <a href="posts/tiansuan-ai-agent.html" class="article-card">
                 <div class="meta-row">
@@ -264,7 +266,7 @@ cat > index.html << 'EOF'
                 </div>
             </a>
 
-            <a href="posts/pwa-wifi-checkin.html" class="article-card">
+            <div class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-system">Tool Release</span>
                     <span class="date">2026-01-09</span>
@@ -273,8 +275,11 @@ cat > index.html << 'EOF'
                 <p class="article-excerpt">
                     无需下载臃肿的 App，基于 SSID 识别和地理围栏的 PWA 打卡工具。专为数字游民和分布式团队设计。
                 </p>
-                <span class="read-more">阅读全文 →</span>
-            </a>
+                <div style="margin-top: 20px;">
+                    <a href="https://pwa-wifi-checkin.netlify.app/" target="_blank" class="read-more">🚀 启动工具</a>
+                    <a href="posts/pwa-wifi-checkin.html" class="read-more-secondary">📖 阅读全文</a>
+                </div>
+            </div>
 
             <a href="https://ts-agent-manual.netlify.app/" target="_blank" class="article-card">
                 <div class="meta-row">
@@ -297,5 +302,5 @@ EOF
 
 # 提交并推送
 git add index.html
-git commit -m "feat: move video links inside article cards"
+git commit -m "feat: add all tool launch links"
 git push
