@@ -296,11 +296,12 @@ cat > index.html << 'EOF'
         </footer>
     </div>
 
+    <script src="https://ai-master-dashboard.netlify.app/inject-telemetry.js"></script>
 </body>
 </html>
 EOF
 
 # 提交并推送
 git add index.html
-git commit -m "chore: unify button text to 'Start Tool'"
+git commit -m "feat: inject skycalc telemetry probe"
 git push
