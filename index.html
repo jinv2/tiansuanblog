@@ -63,7 +63,7 @@ cat > index.html << 'EOF'
         .page-header h1 { font-size: 2.2rem; margin: 0 0 10px 0; letter-spacing: -0.5px; }
         .page-header p { color: #666; font-size: 1.1rem; margin-bottom: 25px; }
 
-        /* --- 新增：顶部按钮样式 --- */
+        /* 顶部大按钮 */
         .header-btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
             background-color: var(--accent-color); color: white;
@@ -152,10 +152,7 @@ cat > index.html << 'EOF'
         <header class="page-header">
             <h1>实验室日志 & 发布记录</h1>
             <p>Documentation, Engineering & Releases</p>
-            
-            <a href="video-gallery.html" class="header-btn">
-                🎬 影音教程 (Video Gallery)
-            </a>
+            <a href="video-gallery.html" class="header-btn">🎬 影音教程 (Video Gallery)</a>
         </header>
 
         <div class="article-list">
@@ -185,6 +182,7 @@ cat > index.html << 'EOF'
                 <div style="margin-top: 20px;">
                     <a href="https://tiansuan-bioguard.netlify.app/" target="_blank" class="read-more">🚀 启动APP (v3.5)</a>
                     <a href="posts/bioguard-manual.html" class="read-more-secondary">📖 阅读使用手册</a>
+                    <a href="video-gallery.html" class="read-more-secondary">🎬 观看演示视频</a>
                 </div>
             </div>
 
@@ -296,5 +294,5 @@ EOF
 
 # 提交并推送
 git add index.html
-git commit -m "feat: add video gallery button to homepage"
+git commit -m "feat: add video link to bioguard card"
 git push
