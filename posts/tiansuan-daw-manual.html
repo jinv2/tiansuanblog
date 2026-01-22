@@ -1,5 +1,3 @@
-# 重写使用手册 HTML (posts/tiansuan-daw-manual.html)
-cat > posts/tiansuan-daw-manual.html << 'EOF'
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -24,9 +22,9 @@ cat > posts/tiansuan-daw-manual.html << 'EOF'
             padding: 0;
         }
         
-        /* 顶部导航栏 */
+        /* 顶部导航栏 (自适应) */
         .top-nav {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             padding: 15px 20px;
@@ -47,19 +45,27 @@ cat > posts/tiansuan-daw-manual.html << 'EOF'
         }
         .back-link:hover { color: var(--primary); }
 
-        /* 主容器 */
+        /* 主容器 (手机端优化 padding) */
         .container {
             max-width: 800px;
-            margin: 30px auto;
-            padding: 40px;
+            margin: 20px auto;
+            padding: 30px;
             background: var(--bg);
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
+        @media (max-width: 600px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                padding: 20px;
+                box-shadow: none;
+            }
+        }
 
         /* 标题区 */
-        h1 { font-size: 2.2em; margin-bottom: 10px; color: #111; letter-spacing: -0.5px; border-bottom: none; }
-        h2 { margin-top: 40px; padding-bottom: 10px; border-bottom: 2px solid #eee; color: #222; }
+        h1 { font-size: 2em; margin-bottom: 10px; color: #111; letter-spacing: -0.5px; line-height: 1.2; }
+        h2 { margin-top: 40px; padding-bottom: 10px; border-bottom: 2px solid #eee; color: #222; font-size: 1.5em; }
         h3 { margin-top: 30px; color: var(--primary); font-size: 1.2em; }
         
         /* 应用地址卡片 */
@@ -75,7 +81,14 @@ cat > posts/tiansuan-daw-manual.html << 'EOF'
             flex-wrap: wrap;
             gap: 15px;
         }
-        .app-url { font-family: 'Monaco', monospace; color: #005a9e; font-size: 0.9em; word-break: break-all; }
+        .app-info { flex: 1; min-width: 200px; }
+        .app-url { 
+            font-family: 'Monaco', monospace; 
+            color: #005a9e; 
+            font-size: 0.85em; 
+            word-break: break-all; 
+            margin-top: 5px;
+        }
         .launch-btn {
             background: var(--primary);
             color: white;
@@ -85,17 +98,18 @@ cat > posts/tiansuan-daw-manual.html << 'EOF'
             font-weight: bold;
             transition: background 0.2s;
             display: inline-block;
+            white-space: nowrap;
         }
         .launch-btn:hover { background: var(--primary-hover); }
 
         /* 内容样式 */
         p { margin-bottom: 15px; }
-        ul, ol { margin-bottom: 20px; padding-left: 25px; }
+        ul, ol { margin-bottom: 20px; padding-left: 20px; }
         li { margin-bottom: 8px; }
         code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: 'Menlo', 'Monaco', monospace; font-size: 0.9em; color: #d63384; }
         .meta { font-size: 0.9em; color: #666; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed #ddd; }
         
-        footer { margin-top: 50px; text-align: center; font-size: 0.8em; color: #888; padding-bottom: 20px; }
+        footer { margin-top: 50px; text-align: center; font-size: 0.8em; color: #888; padding-bottom: 40px; }
     </style>
 </head>
 <body>
@@ -115,8 +129,8 @@ cat > posts/tiansuan-daw-manual.html << 'EOF'
         </div>
 
         <div class="app-link-card">
-            <div>
-                <div style="font-weight:bold; margin-bottom:5px;">应用地址 (Application URL)</div>
+            <div class="app-info">
+                <div style="font-weight:bold;">应用地址 (Application URL)</div>
                 <div class="app-url">https://tiansuan-music.netlify.app/</div>
             </div>
             <a href="https://tiansuan-music.netlify.app/" target="_blank" class="launch-btn">
@@ -161,19 +175,11 @@ cat > posts/tiansuan-daw-manual.html << 'EOF'
         <p><strong>Q: API Key 安全吗？</strong><br>
         A: 绝对安全。Key 仅存储在您的本地浏览器 (Local Storage)，绝不上传至任何第三方服务器。</p>
 
-    </div>
+        <footer>
+            版权所有 © 2026 天算 AI 科技研发实验室 | Powered by DeepSeek
+        </footer>
 
-    <footer>
-        版权所有 © 2026 天算 AI 科技研发实验室 | Powered by DeepSeek
-    </footer>
+    </div>
 
 </body>
 </html>
-EOF
-
-# 提交更新
-git add posts/tiansuan-daw-manual.html
-git commit -m "docs: fix manual layout and add app url"
-git push
-
-echo "✅ 文档已修正！链接与标题已对齐。"
