@@ -90,6 +90,7 @@
         .tag-dev { background: #e3f2fd; color: #1565c0; }
         .tag-system { background: #f3e5f5; color: #7b1fa2; }
         .tag-doc { background: #fff3e0; color: #ef6c00; }
+        .tag-new { background: #ffebee; color: #c62828; } /* 新增红色标签 */
 
         .article-title { margin: 0 0 10px 0; font-size: 1.4rem; font-weight: 700; line-height: 1.3; }
         .article-excerpt { color: #555; margin: 0; font-size: 1rem; }
@@ -110,7 +111,6 @@
 </head>
 <body>
 
-    <!-- 统一导航栏 -->
     <nav>
         <div class="nav-container">
             <a href="https://tiansuanai.netlify.app/" class="logo">
@@ -140,7 +140,6 @@
 
         <div class="article-list">
 
-            <!-- 置顶文章 -->
             <a href="posts/base-guide.html" class="article-card" style="border-left: 5px solid #ff7b00;">
                 <div class="meta-row">
                     <span class="category-tag" style="background:#333; color:#fff;">🚀 置顶推荐</span>
@@ -153,24 +152,22 @@
                 <span class="read-more">阅读指南 →</span>
             </a>
 
-            <!-- AI Music Agent -->
             <div class="article-card"> 
                 <div class="meta-row">
-                    <span class="category-tag tag-release">Music Tech</span>
-                    <span class="date">2026-01-20</span>
+                    <span class="category-tag tag-new">🔥 New Release</span>
+                    <span class="category-tag tag-release">AI Healthcare</span>
+                    <span class="date">2026-01-22</span>
                 </div>
-                <h2 class="article-title">AI Music Agent：智能配器大师 (PWA)</h2>
+                <h2 class="article-title">天算·生命哨兵 (BioGuard v3.5) - 智能监护系统</h2>
                 <p class="article-excerpt">
-                    首个“只有智能体能做”的音乐生产力工具。输入主旋律，智能体通过乐理逻辑推理，自动补全四部和声 (SATB) 与配器。集成 BYOK 模式，支持用户自定义 DeepSeek 密钥，实现零成本无限扩展。
+                    【重磅发布】无需穿戴设备，旧手机秒变 24 小时 AI 护工。集成金融级活体认证、实时姿态可视化分析与自动跌倒报警系统。
                 </p>
                 <div style="margin-top: 20px;">
-                    <a href="https://music-agent-pwa.netlify.app/" target="_blank" class="read-more">🚀 立即启动工具</a>
-                    <a href="posts/music-agent-guide.html" class="read-more-secondary">📖 阅读使用教程</a>
-                    <a href="video-gallery.html" class="read-more-secondary">🎬 查看视频演示</a>
+                    <a href="https://tiansuan-bioguard.netlify.app/" target="_blank" class="read-more">🚀 启动APP (v3.5)</a>
+                    <a href="posts/2026-01-22-tiansuan-bioguard-manual.md" class="read-more-secondary">📖 阅读使用手册</a>
                 </div>
             </div>
 
-            <!-- DeepSeek AI Agent 使用说明 -->
             <a href="posts/deepseek-ai-agent-guide.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-doc">Documentation</span>
@@ -183,7 +180,21 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 1 -->
+            <div class="article-card"> 
+                <div class="meta-row">
+                    <span class="category-tag tag-release">Music Tech</span>
+                    <span class="date">2026-01-20</span>
+                </div>
+                <h2 class="article-title">AI Music Agent：智能配器大师 (PWA)</h2>
+                <p class="article-excerpt">
+                    首个“只有智能体能做”的音乐生产力工具。输入主旋律，智能体通过乐理逻辑推理，自动补全四部和声 (SATB) 与配器。集成 BYOK 模式。
+                </p>
+                <div style="margin-top: 20px;">
+                    <a href="https://music-agent-pwa.netlify.app/" target="_blank" class="read-more">🚀 启动工具</a>
+                    <a href="posts/music-agent-guide.html" class="read-more-secondary">📖 阅读教程</a>
+                </div>
+            </div>
+
             <a href="posts/hebei-agent-release.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-release">Indie Dev</span>
@@ -191,12 +202,11 @@
                 </div>
                 <h2 class="article-title">平行人生·河北篇发布：文旅与智能体的深度融合</h2>
                 <p class="article-excerpt">
-                    AlterEgo Life 系列迎来首个地方文旅版本。我们不仅仅是做攻略，而是用 AI 模拟了一个平行世界的河北，让智能体带你探索燕赵大地的历史与现代。
+                    AlterEgo Life 系列迎来首个地方文旅版本。我们不仅仅是做攻略，而是用 AI 模拟了一个平行世界的河北。
                 </p>
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 2 -->
             <a href="posts/samsara-engine-release.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-dev">Core Engine</span>
@@ -204,12 +214,11 @@
                 </div>
                 <h2 class="article-title">Samsara Engine Release：轮回引擎的核心逻辑</h2>
                 <p class="article-excerpt">
-                    World Genesis 背后的驱动力。Samsara（轮回）引擎负责处理随机事件流、因果律计算以及世界线的收束。本文详细介绍了 v1.0 版本的构建思路。
+                    World Genesis 背后的驱动力。Samsara（轮回）引擎负责处理随机事件流、因果律计算以及世界线的收束。
                 </p>
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 3 -->
             <a href="posts/keep-alive-launch.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-system">System Utility</span>
@@ -217,12 +226,11 @@
                 </div>
                 <h2 class="article-title">Keep Alive Launch：解决 PWA 后台存活难题</h2>
                 <p class="article-excerpt">
-                    在 iOS 和 Android 上保持 PWA 的持续运行一直是个挑战。我们发布了 Keep Alive 服务，通过静默音频流与心跳检测，确保你的智能体永不掉线。
+                    在 iOS 和 Android 上保持 PWA 的持续运行一直是个挑战。我们发布了 Keep Alive 服务，通过静默音频流与心跳检测保活。
                 </p>
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 4 -->
             <a href="posts/tiansuan-ai-agent.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-release">Manifesto</span>
@@ -235,7 +243,6 @@
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 文章 5 -->
             <a href="posts/pwa-wifi-checkin.html" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-system">Tool Release</span>
@@ -243,12 +250,11 @@
                 </div>
                 <h2 class="article-title">PWA Wifi Checkin：极简主义的远程办公打卡器</h2>
                 <p class="article-excerpt">
-                    无需下载臃肿的 App，基于 SSID 识别和地理围栏的 PWA 打卡工具。专为数字游民和分布式团队设计，轻量、安全、即开即用。
+                    无需下载臃肿的 App，基于 SSID 识别和地理围栏的 PWA 打卡工具。专为数字游民和分布式团队设计。
                 </p>
                 <span class="read-more">阅读全文 →</span>
             </a>
 
-            <!-- 旧文章保留: 操作手册 -->
             <a href="https://ts-agent-manual.netlify.app/" target="_blank" class="article-card">
                 <div class="meta-row">
                     <span class="category-tag tag-doc">📘 使用文档</span>
