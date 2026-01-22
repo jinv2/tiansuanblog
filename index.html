@@ -1,3 +1,7 @@
+# 1. 确保在博客目录
+# cd tiansuanblog  <-- 如果您不在目录下，请取消注释这行
+
+# 2. 重写 index.html (包含新的 DAW 卡片)
 cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -159,6 +163,22 @@ cat > index.html << 'EOF'
             <div class="article-card"> 
                 <div class="meta-row">
                     <span class="category-tag tag-new">🔥 New Release</span>
+                    <span class="category-tag tag-release">AI Music</span>
+                    <span class="date">2026-01-22</span>
+                </div>
+                <h2 class="article-title">天算 DAW (v4.3) - 深度求索 AI 音乐工作站</h2>
+                <p class="article-excerpt">
+                    【里程碑发布】专为制作人打造的 Web 宿主。集成 DeepSeek-V3 逻辑推理引擎，支持 BYOK 模式，实现从音频到工业级 MusicXML/简谱的精准转换。
+                </p>
+                <div style="margin-top: 20px;">
+                    <a href="https://tiansuan-music.netlify.app/" target="_blank" class="read-more">🚀 启动工作站</a>
+                    <a href="posts/tiansuan-daw-manual.html" class="read-more-secondary">📖 阅读手册</a>
+                </div>
+            </div>
+
+            <div class="article-card"> 
+                <div class="meta-row">
+                    <span class="category-tag tag-new">🔥 New Release</span>
                     <span class="category-tag tag-release">AI Healthcare</span>
                     <span class="date">2026-01-22</span>
                 </div>
@@ -301,7 +321,9 @@ cat > index.html << 'EOF'
 </html>
 EOF
 
-# 提交并推送
+# 3. 提交到 Github
 git add index.html
-git commit -m "feat: inject skycalc telemetry probe"
+git commit -m "feat: add Tiansuan DAW v4.3 release card to blog index"
 git push
+
+echo "✅ 首页已更新！天算 DAW 卡片已添加。"
