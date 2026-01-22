@@ -1,3 +1,4 @@
+cat > video-gallery.html << 'EOF'
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -91,7 +92,7 @@
 
         /* --- 底部居中修正 --- */
         footer {
-            text-align: center; /* 强制文字居中 */
+            text-align: center;
             display: block;
             width: 100%;
             margin-top: 80px;
@@ -199,6 +200,11 @@
         <div class="video-grid">
             
             <div class="video-card">
+                <iframe src="//player.bilibili.com/player.html?bvid=BV1T3zWBrEnC&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
+                <div class="card-overlay">⚡ 硅基哨兵：旧手机变光学神经</div>
+            </div>
+
+            <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1Htk5BUEC5&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">🎼 AI短视频：智能体配器演示</div>
             </div>
@@ -254,3 +260,9 @@
 
 </body>
 </html>
+EOF
+
+# 推送
+git add video-gallery.html
+git commit -m "feat: add Silicon Sentinel video to gallery"
+git push
