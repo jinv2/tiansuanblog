@@ -63,21 +63,6 @@ cat > index.html << 'EOF'
         .page-header h1 { font-size: 2.2rem; margin: 0 0 10px 0; letter-spacing: -0.5px; }
         .page-header p { color: #666; font-size: 1.1rem; margin-bottom: 25px; }
 
-        /* 顶部大按钮 */
-        .header-btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-            background-color: var(--accent-color); color: white;
-            padding: 12px 30px; border-radius: 30px;
-            text-decoration: none; font-weight: 600; font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
-            transition: all 0.2s ease;
-        }
-        .header-btn:hover {
-            background-color: #e66a00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 123, 0, 0.4);
-        }
-
         /* --- 文章卡片样式 --- */
         .article-list { display: flex; flex-direction: column; gap: 30px; }
         
@@ -152,8 +137,7 @@ cat > index.html << 'EOF'
         <header class="page-header">
             <h1>实验室日志 & 发布记录</h1>
             <p>Documentation, Engineering & Releases</p>
-            <a href="video-gallery.html" class="header-btn">🎬 影音教程 (Video Gallery)</a>
-        </header>
+            </header>
 
         <div class="article-list">
 
@@ -166,7 +150,10 @@ cat > index.html << 'EOF'
                 <p class="article-excerpt">
                     新用户必读。本文详细介绍了“矩阵首页”、“实验室日志”与“影音中心”的定位与联动逻辑，助您快速上手天算 AI 生态。
                 </p>
-                <span class="read-more">阅读指南 →</span>
+                <div style="margin-top: 15px;">
+                    <span class="read-more">阅读指南 →</span>
+                    <object><a href="https://www.bilibili.com/video/BV1hkzGBSE2G" target="_blank" class="read-more-secondary">🎬 观看矩阵导览</a></object>
+                </div>
             </a>
 
             <div class="article-card"> 
@@ -182,7 +169,7 @@ cat > index.html << 'EOF'
                 <div style="margin-top: 20px;">
                     <a href="https://tiansuan-bioguard.netlify.app/" target="_blank" class="read-more">🚀 启动APP (v3.5)</a>
                     <a href="posts/bioguard-manual.html" class="read-more-secondary">📖 阅读使用手册</a>
-                    <a href="video-gallery.html" class="read-more-secondary">🎬 观看演示视频</a>
+                    <a href="https://www.bilibili.com/video/BV1edzpBDErL" target="_blank" class="read-more-secondary">🎬 观看改造实录</a>
                 </div>
             </div>
 
@@ -195,7 +182,10 @@ cat > index.html << 'EOF'
                 <p class="article-excerpt">
                     专属行业AI智能体使用说明，指导客户在音乐或影视行业快速生成专业建议，无需接触 API 或配置技术。
                 </p>
-                <span class="read-more">阅读全文 →</span>
+                <div style="margin-top: 15px;">
+                    <span class="read-more">阅读全文 →</span>
+                    <object><a href="https://www.bilibili.com/video/BV1GTzjBcEWK" target="_blank" class="read-more-secondary">🎬 观看效率演示</a></object>
+                </div>
             </a>
 
             <div class="article-card"> 
@@ -205,11 +195,12 @@ cat > index.html << 'EOF'
                 </div>
                 <h2 class="article-title">AI Music Agent：智能配器大师 (PWA)</h2>
                 <p class="article-excerpt">
-                    首个“只有智能体能做”的音乐生产力工具。输入主旋律，智能体通过乐理逻辑推理，自动补全四部和声 (SATB) 与配器。集成 BYOK 模式。
+                    首个“只有智能体能做”的音乐生产力工具。输入主旋律，智能体通过乐理逻辑推理，自动补全四部和声 (SATB) 与配器。
                 </p>
                 <div style="margin-top: 20px;">
                     <a href="https://music-agent-pwa.netlify.app/" target="_blank" class="read-more">🚀 启动工具</a>
                     <a href="posts/music-agent-guide.html" class="read-more-secondary">📖 阅读教程</a>
+                    <a href="https://www.bilibili.com/video/BV1ptk5BUEM4" target="_blank" class="read-more-secondary">🎬 观看配器演示</a>
                 </div>
             </div>
 
@@ -220,9 +211,12 @@ cat > index.html << 'EOF'
                 </div>
                 <h2 class="article-title">平行人生·河北篇发布：文旅与智能体的深度融合</h2>
                 <p class="article-excerpt">
-                    AlterEgo Life 系列迎来首个地方文旅版本。我们不仅仅是做攻略，而是用 AI 模拟了一个平行世界的河北，让智能体带你探索燕赵大地的历史与现代。
+                    AlterEgo Life 系列迎来首个地方文旅版本。我们不仅仅是做攻略，而是用 AI 模拟了一个平行世界的河北。
                 </p>
-                <span class="read-more">阅读全文 →</span>
+                <div style="margin-top: 15px;">
+                    <span class="read-more">阅读全文 →</span>
+                    <object><a href="https://www.bilibili.com/video/BV1Aik8BbEWq" target="_blank" class="read-more-secondary">🎬 观看文旅演示</a></object>
+                </div>
             </a>
 
             <a href="posts/samsara-engine-release.html" class="article-card">
@@ -234,7 +228,10 @@ cat > index.html << 'EOF'
                 <p class="article-excerpt">
                     World Genesis 背后的驱动力。Samsara（轮回）引擎负责处理随机事件流、因果律计算以及世界线的收束。
                 </p>
-                <span class="read-more">阅读全文 →</span>
+                <div style="margin-top: 15px;">
+                    <span class="read-more">阅读全文 →</span>
+                    <object><a href="https://www.bilibili.com/video/BV1CEkYBqEa8" target="_blank" class="read-more-secondary">🎬 观看视觉重构</a></object>
+                </div>
             </a>
 
             <a href="posts/keep-alive-launch.html" class="article-card">
@@ -246,7 +243,10 @@ cat > index.html << 'EOF'
                 <p class="article-excerpt">
                     在 iOS 和 Android 上保持 PWA 的持续运行一直是个挑战。我们发布了 Keep Alive 服务，通过静默音频流与心跳检测保活。
                 </p>
-                <span class="read-more">阅读全文 →</span>
+                <div style="margin-top: 15px;">
+                    <span class="read-more">阅读全文 →</span>
+                    <object><a href="https://www.bilibili.com/video/BV1SMkYB5Es5" target="_blank" class="read-more-secondary">🎬 观看保活演示</a></object>
+                </div>
             </a>
 
             <a href="posts/tiansuan-ai-agent.html" class="article-card">
@@ -258,7 +258,10 @@ cat > index.html << 'EOF'
                 <p class="article-excerpt">
                     从 Strategos 到 Scholar，我们将构建一个分工明确的智能体生态。这是关于 2026 年我们如何重新定义“人机协作”的宣言。
                 </p>
-                <span class="read-more">阅读全文 →</span>
+                <div style="margin-top: 15px;">
+                    <span class="read-more">阅读全文 →</span>
+                    <object><a href="https://www.bilibili.com/video/BV1Avk8BFEhr" target="_blank" class="read-more-secondary">🎬 观看进化宣言</a></object>
+                </div>
             </a>
 
             <a href="posts/pwa-wifi-checkin.html" class="article-card">
@@ -294,5 +297,5 @@ EOF
 
 # 提交并推送
 git add index.html
-git commit -m "feat: add video link to bioguard card"
+git commit -m "feat: move video links inside article cards"
 git push
