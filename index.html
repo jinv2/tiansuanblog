@@ -1,3 +1,4 @@
+cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -60,7 +61,22 @@
 
         .page-header { margin-bottom: 50px; text-align: center; }
         .page-header h1 { font-size: 2.2rem; margin: 0 0 10px 0; letter-spacing: -0.5px; }
-        .page-header p { color: #666; font-size: 1.1rem; }
+        .page-header p { color: #666; font-size: 1.1rem; margin-bottom: 25px; }
+
+        /* --- 新增：顶部按钮样式 --- */
+        .header-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background-color: var(--accent-color); color: white;
+            padding: 12px 30px; border-radius: 30px;
+            text-decoration: none; font-weight: 600; font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
+            transition: all 0.2s ease;
+        }
+        .header-btn:hover {
+            background-color: #e66a00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 123, 0, 0.4);
+        }
 
         /* --- 文章卡片样式 --- */
         .article-list { display: flex; flex-direction: column; gap: 30px; }
@@ -90,7 +106,7 @@
         .tag-dev { background: #e3f2fd; color: #1565c0; }
         .tag-system { background: #f3e5f5; color: #7b1fa2; }
         .tag-doc { background: #fff3e0; color: #ef6c00; }
-        .tag-new { background: #ffebee; color: #c62828; } /* 新增红色标签 */
+        .tag-new { background: #ffebee; color: #c62828; }
 
         .article-title { margin: 0 0 10px 0; font-size: 1.4rem; font-weight: 700; line-height: 1.3; }
         .article-excerpt { color: #555; margin: 0; font-size: 1rem; }
@@ -136,6 +152,10 @@
         <header class="page-header">
             <h1>实验室日志 & 发布记录</h1>
             <p>Documentation, Engineering & Releases</p>
+            
+            <a href="video-gallery.html" class="header-btn">
+                🎬 影音教程 (Video Gallery)
+            </a>
         </header>
 
         <div class="article-list">
@@ -187,7 +207,7 @@
                 </div>
                 <h2 class="article-title">AI Music Agent：智能配器大师 (PWA)</h2>
                 <p class="article-excerpt">
-                    首个“只有智能体能做”的音乐生产力工具。输入主旋律，智能体通过乐理逻辑推理，自动补全四部和声 (SATB) 与配器。集成 BYOK 模式，支持用户自定义 DeepSeek 密钥，实现零成本无限扩展。
+                    首个“只有智能体能做”的音乐生产力工具。输入主旋律，智能体通过乐理逻辑推理，自动补全四部和声 (SATB) 与配器。集成 BYOK 模式。
                 </p>
                 <div style="margin-top: 20px;">
                     <a href="https://music-agent-pwa.netlify.app/" target="_blank" class="read-more">🚀 启动工具</a>
@@ -214,7 +234,7 @@
                 </div>
                 <h2 class="article-title">Samsara Engine Release：轮回引擎的核心逻辑</h2>
                 <p class="article-excerpt">
-                    World Genesis 背后的驱动力。Samsara（轮回）引擎负责处理随机事件流、因果律计算以及世界线的收束。本文详细介绍了 v1.0 版本的构建思路。
+                    World Genesis 背后的驱动力。Samsara（轮回）引擎负责处理随机事件流、因果律计算以及世界线的收束。
                 </p>
                 <span class="read-more">阅读全文 →</span>
             </a>
@@ -226,7 +246,7 @@
                 </div>
                 <h2 class="article-title">Keep Alive Launch：解决 PWA 后台存活难题</h2>
                 <p class="article-excerpt">
-                    在 iOS 和 Android 上保持 PWA 的持续运行一直是个挑战。我们发布了 Keep Alive 服务，通过静默音频流与心跳检测，确保你的智能体永不掉线。
+                    在 iOS 和 Android 上保持 PWA 的持续运行一直是个挑战。我们发布了 Keep Alive 服务，通过静默音频流与心跳检测保活。
                 </p>
                 <span class="read-more">阅读全文 →</span>
             </a>
@@ -250,7 +270,7 @@
                 </div>
                 <h2 class="article-title">PWA Wifi Checkin：极简主义的远程办公打卡器</h2>
                 <p class="article-excerpt">
-                    无需下载臃肿的 App，基于 SSID 识别和地理围栏的 PWA 打卡工具。专为数字游民和分布式团队设计，轻量、安全、即开即用。
+                    无需下载臃肿的 App，基于 SSID 识别和地理围栏的 PWA 打卡工具。专为数字游民和分布式团队设计。
                 </p>
                 <span class="read-more">阅读全文 →</span>
             </a>
@@ -272,3 +292,9 @@
 
 </body>
 </html>
+EOF
+
+# 提交并推送
+git add index.html
+git commit -m "feat: add video gallery button to homepage"
+git push
