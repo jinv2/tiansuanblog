@@ -1,0 +1,168 @@
+# 1. 确保 posts 目录存在
+mkdir -p posts
+
+# 2. 生成 HTML 格式的专业使用手册
+cat > posts/tiansuan-daw-manual.html << 'EOF'
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天算 DAW (v4.3) 使用手册</title>
+    <style>
+        :root {
+            --primary: #007fd4;
+            --bg: #ffffff;
+            --text: #333333;
+            --code-bg: #f5f5f5;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: var(--bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        h1 { font-size: 2.2em; margin-bottom: 10px; color: #111; letter-spacing: -0.5px; }
+        h2 { margin-top: 30px; padding-bottom: 10px; border-bottom: 2px solid #eee; color: #222; }
+        h3 { margin-top: 25px; color: var(--primary); font-size: 1.2em; }
+        p { margin-bottom: 15px; }
+        ul, ol { margin-bottom: 20px; padding-left: 25px; }
+        li { margin-bottom: 8px; }
+        code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: 'Menlo', 'Monaco', monospace; font-size: 0.9em; color: #d63384; }
+        .meta { font-size: 0.9em; color: #666; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed #ddd; }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        footer { margin-top: 50px; text-align: center; font-size: 0.8em; color: #888; }
+    </style>
+</head>
+<body>
+
+    <a href="../index.html" class="back-link">← 返回实验室首页</a>
+
+    <div class="container">
+        <h1>天算 DAW 使用手册</h1>
+        <div class="meta">
+            <strong>版本：</strong> v4.3 (DeepSeek Engine) &nbsp;|&nbsp; 
+            <strong>发布日期：</strong> 2026年1月22日 &nbsp;|&nbsp; 
+            <strong>开发者：</strong> 天算 AI 科技研发实验室
+        </div>
+
+        <h2>1. 产品概述</h2>
+        <p><strong>天算 DAW</strong> 是一款专为专业音乐制作人打造的 Web-based AI 宿主软件。与传统网页转换工具不同，它采用了 <strong>BYOK (Bring Your Own Key)</strong> 架构，底层直连 <strong>DeepSeek-V3</strong> 推理引擎，能够理解复杂的音乐织体，并输出工业级标准的 MusicXML 乐谱。</p>
+
+        <h2>2. 快速开始 (Quick Start)</h2>
+
+        <h3>第一步：连接推理引擎</h3>
+        <p>由于本系统采用 Serverless 架构，您需要连接 AI 大脑：</p>
+        <ol>
+            <li>点击界面右上角的 <span class="btn">CONNECT API</span> 按钮。</li>
+            <li>在弹出的配置窗口中，输入您的 DeepSeek API Key (<code>sk-xxxxxxxx</code>)。</li>
+            <li>点击 <strong>连接 (Connect)</strong>。</li>
+            <li>状态确认：当顶部状态栏显示绿色的 <strong>ONLINE</strong> 时，引擎已就绪。</li>
+        </ol>
+
+        <h3>第二步：导入音频</h3>
+        <p>在左侧的 <strong>INSPECTOR (检查器)</strong> 面板中：</p>
+        <ul>
+            <li>找到 <strong>Audio Source</strong> 区域。</li>
+            <li>点击虚线框或直接将音频文件拖入框内。</li>
+            <li>支持格式：MP3, WAV, FLAC (建议使用 44.1kHz 以上的高品质音频)。</li>
+        </ul>
+
+        <h3>第三步：选择输出格式</h3>
+        <p>在 <strong>Output Format</strong> 区域选择目标乐谱类型：</p>
+        <ul>
+            <li><strong>Orchestral Score (五线谱)：</strong> 适合交响乐、钢琴独奏或复杂编曲分析。</li>
+            <li><strong>Jianpu / Numeric (简谱)：</strong> 适合流行音乐或快速旋律记录。</li>
+        </ul>
+
+        <h3>第四步：AI 转换</h3>
+        <p>一切准备就绪后：</p>
+        <ol>
+            <li>点击顶部波形下方的 <span class="btn">DeepSeek Transform</span> 按钮。</li>
+            <li><strong>等待推理：</strong> 系统会将音频特征发送给 DeepSeek V3 进行逻辑分析（约 10-30 秒）。</li>
+            <li><strong>查看结果：</strong> 转换完成的乐谱将直接显示在右侧主工作区。</li>
+        </ol>
+
+        <h2>3. 常见问题 (FAQ)</h2>
+        <p><strong>Q: API Key 安全吗？</strong><br>
+        A: 绝对安全。Key 仅存储在您的本地浏览器 (Local Storage)，绝不上传至任何第三方服务器。</p>
+
+        <p><strong>Q: 界面左上角的 Logo 是什么？</strong><br>
+        A: 那是 TianSuan Engine v4.3 的运行标识。如果您看到它，说明您正在使用最新的稳定版本。</p>
+
+    </div>
+
+    <footer>
+        版权所有 © 2026 天算 AI 科技研发实验室 | Powered by DeepSeek
+    </footer>
+
+</body>
+</html>
+EOF
+
+# 3. 更新 index.html (确保链接指向 .html 文件)
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天算 AI 科技研发实验室</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; background: #f5f5f5; color: #333; }
+        header { border-bottom: 2px solid #007fd4; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { margin: 0; color: #111; }
+        .subtitle { color: #666; font-size: 0.9em; margin-top: 5px; }
+        ul { list-style-type: none; padding: 0; }
+        li { background: white; margin-bottom: 15px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; }
+        li:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        a { text-decoration: none; color: #007fd4; font-weight: bold; font-size: 18px; display: block; margin-bottom: 5px; }
+        a:hover { text-decoration: underline; }
+        .date { font-size: 12px; color: #999; }
+        .tag { display: inline-block; background: #e1f0fa; color: #007fd4; padding: 2px 8px; border-radius: 12px; font-size: 11px; margin-left: 10px; font-weight: normal; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>天算 AI 科技研发实验室</h1>
+        <div class="subtitle">Laboratory Logs & Documentation</div>
+    </header>
+    
+    <ul>
+        <li>
+            <a href="posts/tiansuan-daw-manual.html">天算 DAW (v4.3) 使用手册 <span class="tag">Documentation</span></a>
+            <div class="date">2026-01-22 | 深度求索 AI 音乐工作站官方教程</div>
+        </li>
+        </ul>
+</body>
+</html>
+EOF
+
+# 4. 提交到 Github
+git add .
+git commit -m "docs: release html user manual"
+git push
+
+echo "✅ HTML 教程已发布！"
+echo "请访问: https://tiansuanblog.netlify.app/"
+echo "点击第一篇文章即可查看教程。"
