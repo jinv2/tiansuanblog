@@ -3,44 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>灵感简谱Pro v28.2 使用说明 - 天算实验室</title>
+    <title>灵感简谱Pro v28.2 官方手册 - 天算实验室</title>
     <style>
-        body { font-family: -apple-system, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #f9f9fb; }
-        .post-header { border-bottom: 2px solid #22d3ee; margin-bottom: 30px; padding-bottom: 20px; }
-        .post-header h1 { font-size: 2rem; color: #0f172a; margin: 0; }
-        .tag { background: #e3f2fd; color: #1565c0; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
-        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
-        .feature-card { background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5; }
-        .feature-card h3 { color: #0891b2; margin-top: 0; }
-        .btn-link { display: inline-block; background: #0891b2; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 20px; }
+        :root { --accent: #ff7b00; --main: #0891b2; --bg: #f9f9fb; }
+        body { font-family: -apple-system, "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; max-width: 850px; margin: 0 auto; padding: 40px 20px; background: var(--bg); }
+        .post-header { border-bottom: 3px solid var(--main); margin-bottom: 40px; padding-bottom: 20px; text-align: center; }
+        .post-header h1 { font-size: 2.4rem; color: #0f172a; margin: 10px 0; }
+        .tag { background: #e3f2fd; color: #1565c0; padding: 4px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
+        
+        h2 { border-left: 5px solid var(--main); padding-left: 15px; color: #0f172a; margin-top: 40px; }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0; }
+        .feature-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid #e5e5e5; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .feature-card h3 { color: var(--main); margin-top: 0; font-size: 1.2rem; }
+        
+        .step-box { background: #fff; padding: 25px; border-radius: 12px; border-left: 5px solid var(--accent); margin: 20px 0; }
+        .step-box b { color: var(--accent); }
+        
+        .btn-link { display: block; text-align: center; background: var(--main); color: white; padding: 18px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.2rem; margin: 50px 0; transition: transform 0.2s; }
+        .btn-link:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(8,145,178,0.2); }
+        
+        footer { text-align: center; padding: 40px 0; color: #999; font-size: 0.9rem; border-top: 1px solid #eee; }
+        code { background: #f1f1f1; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; }
     </style>
 </head>
 <body>
+
     <div class="post-header">
-        <span class="tag">Release v28.2</span>
-        <h1>灵感简谱Pro：物理 A4 锁定与 AI 词谱协作说明</h1>
+        <span class="tag">天算实验室 · 官方发布</span>
+        <h1>灵感简谱Pro：重新定义专业简谱创作</h1>
+        <p style="color: #666;">2026-01-23 | 生产力工具 v28.2 专家版</p>
     </div>
 
-    <p><strong>灵感简谱Pro (v28.2)</strong> 现已部署至 Netlify 生产环境。本次更新解决了从本地开发到云端部署的所有布局兼容性问题，并锁定了以下核心功能：</p>
+    <p>天算实验室推出的 <strong>灵感简谱Pro (Muse Pro)</strong> 是一款专为音乐人打造的出版级简谱工作站。我们彻底抛弃了传统绘图工具的繁琐，通过 AI 逻辑引擎实现了<strong>物理 A4 排版锁定</strong>与<strong>歌词自动对齐</strong>，让每一份简谱都具备出版级的尊严。</p>
 
     <div class="feature-grid">
         <div class="feature-card">
-            <h3>物理 A4 打印标准</h3>
-            <p>严格 1240x1754 像素锁定，支持调号、拍号、速度、词曲作者的出版级规范化排版。</p>
+            <h3>出版级打印标准</h3>
+            <p>严格锁定 1240x1754 像素（标准 A4）比例。支持调号、拍号、速度、词曲作者的工业化布局。所见即所得，成品即出版稿。</p>
         </div>
         <div class="feature-card">
-            <h3>全维度时值录入</h3>
-            <p>支持 64 分音符及附点录入，采用自动减时线避让算法，确保复杂节奏不压线。</p>
+            <h3>极限节奏录入</h3>
+            <p>覆盖从全音符到 64 分音符的完整时值。采用减时线自动避让算法，确保复杂节奏下版面依然挺拔、清晰。</p>
         </div>
     </div>
 
-    <h2>核心操作提醒</h2>
-    <ul>
-        <li><strong>词曲录入：</strong> 在乐谱右上方点击对应的输入框即可。</li>
-        <li><strong>歌词录入：</strong> 录入音符后，直接用鼠标点击乐谱上的音符数字，底部将呼出录入框。</li>
-        <li><strong>工程存档：</strong> 建议定期点击“保存工程”下载 <code>.tsmuse</code> 文件，可通过“导入工程”实现二次编辑。</li>
-    </ul>
+    
 
-    <a href="https://tiansuan-music-engine.netlify.app/" class="btn-link">🚀 立即进入工作站</a>
+    <h2>三步开启专业创作</h2>
+
+    <div class="step-box">
+        <b>第一步：确立版式</b><br>
+        通过左侧“工程管理”新建项目，并利用“版式控制”推子确定每行的小节数。在乐谱右上角直接录入词、曲作者，系统会自动完成两行对齐排版。
+    </div>
+
+    <div class="step-box">
+        <b>第二步：智能词谱对齐</b><br>
+        录入音符后，直接用鼠标点击谱面上的<b>音符数字</b>，底部将呼出录入框。输入的歌词会精准垂直锁定在音符正下方。点击现有歌词可随时修改。
+    </div>
+
+    <div class="step-box">
+        <b>第三步：安全存档与输出</b><br>
+        建议定期点击“保存工程”下载 <code>.tsmuse</code> 文件，这是您后续修改的唯一凭证。完成后，一键选择“1080P 超清导出”或“打印 A4 谱稿”。
+    </div>
+
+    
+
+    <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="btn-link">🚀 立即启动灵感简谱Pro 工作站</a>
+
+    <footer>
+        &copy; 2026 天算AI科技研发实验室<br>
+        Natural Algorithm AI Lab Reserved.
+    </footer>
+
 </body>
 </html>
