@@ -7,6 +7,16 @@
     <style>
         :root { --accent: #ff7b00; --main: #0891b2; --bg: #f9f9fb; }
         body { font-family: -apple-system, "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; max-width: 850px; margin: 0 auto; padding: 40px 20px; background: var(--bg); }
+        
+        /* 核心添加：返回按钮样式 */
+        .back-nav { 
+            position: fixed; top: 20px; left: 20px; z-index: 1000;
+            text-decoration: none; color: #666; font-size: 0.9rem; font-weight: bold;
+            background: rgba(255, 255, 255, 0.8); padding: 8px 15px; border-radius: 20px;
+            backdrop-filter: blur(5px); border: 1px solid #ddd; transition: all 0.2s;
+        }
+        .back-nav:hover { color: var(--accent); border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
         .post-header { border-bottom: 3px solid var(--main); margin-bottom: 40px; padding-bottom: 20px; text-align: center; }
         .post-header h1 { font-size: 2.4rem; color: #0f172a; margin: 10px 0; }
         .tag { background: #e3f2fd; color: #1565c0; padding: 4px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
@@ -24,9 +34,13 @@
         
         footer { text-align: center; padding: 40px 0; color: #999; font-size: 0.9rem; border-top: 1px solid #eee; }
         code { background: #f1f1f1; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; }
+
+        @media (max-width: 600px) { .back-nav { position: absolute; top: 10px; left: 10px; } .feature-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
+    <a href="https://tiansuanblog.netlify.app/" class="back-nav">← 返回日志首页</a>
 
     <div class="post-header">
         <span class="tag">天算实验室 · 官方发布</span>
@@ -39,7 +53,7 @@
     <div class="feature-grid">
         <div class="feature-card">
             <h3>出版级打印标准</h3>
-            <p>严格锁定 1240x1754 像素（标准 A4）比例。支持调号、拍号、速度、词曲作者的工业化布局。所见即所得，成品即出版稿。</p>
+            <p>严格锁定 1240x1754 像素（标准 A4）比例。支持调号、拍号、速度、词曲作者的工业化布局。成品即出版稿。</p>
         </div>
         <div class="feature-card">
             <h3>极限节奏录入</h3>
@@ -47,26 +61,22 @@
         </div>
     </div>
 
-    
-
     <h2>三步开启专业创作</h2>
 
     <div class="step-box">
         <b>第一步：确立版式</b><br>
-        通过左侧“工程管理”新建项目，并利用“版式控制”推子确定每行的小节数。在乐谱右上角直接录入词、曲作者，系统会自动完成两行对齐排版。
+        通过左侧“工程管理”新建项目。在乐谱右上角直接录入词、曲作者，系统会自动完成两行对齐排版。
     </div>
 
     <div class="step-box">
         <b>第二步：智能词谱对齐</b><br>
-        录入音符后，直接用鼠标点击谱面上的<b>音符数字</b>，底部将呼出录入框。输入的歌词会精准垂直锁定在音符正下方。点击现有歌词可随时修改。
+        录入音符后，直接用鼠标点击谱面上的<b>音符数字</b>，底部将呼出录入框。输入的歌词会精准垂直锁定在音符正下方。
     </div>
 
     <div class="step-box">
         <b>第三步：安全存档与输出</b><br>
-        建议定期点击“保存工程”下载 <code>.tsmuse</code> 文件，这是您后续修改的唯一凭证。完成后，一键选择“1080P 超清导出”或“打印 A4 谱稿”。
+        建议定期点击“保存工程”下载 <code>.tsmuse</code> 文件。完成后，一键选择“1080P 超清导出”或“打印 A4 谱稿”。
     </div>
-
-    
 
     <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="btn-link">🚀 立即启动灵感简谱Pro 工作站</a>
 
