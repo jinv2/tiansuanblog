@@ -8,7 +8,7 @@
         :root { --accent: #ff7b00; --main: #0891b2; --bg: #f9f9fb; }
         body { font-family: -apple-system, "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; max-width: 850px; margin: 0 auto; padding: 40px 20px; background: var(--bg); }
         
-        /* 核心添加：返回按钮样式 */
+        /* 返回按钮 */
         .back-nav { 
             position: fixed; top: 20px; left: 20px; z-index: 1000;
             text-decoration: none; color: #666; font-size: 0.9rem; font-weight: bold;
@@ -29,12 +29,14 @@
         .step-box { background: #fff; padding: 25px; border-radius: 12px; border-left: 5px solid var(--accent); margin: 20px 0; }
         .step-box b { color: var(--accent); }
         
+        /* 部署指令模块样式 */
+        .deploy-console { background: #1e293b; color: #38bdf8; padding: 20px; border-radius: 8px; font-family: Consolas, monospace; font-size: 0.85rem; overflow-x: auto; margin: 20px 0; border-left: 5px solid #22d3ee; }
+        .deploy-console span { color: #94a3b8; }
+
         .btn-link { display: block; text-align: center; background: var(--main); color: white; padding: 18px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.2rem; margin: 50px 0; transition: transform 0.2s; }
         .btn-link:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(8,145,178,0.2); }
         
         footer { text-align: center; padding: 40px 0; color: #999; font-size: 0.9rem; border-top: 1px solid #eee; }
-        code { background: #f1f1f1; padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; }
-
         @media (max-width: 600px) { .back-nav { position: absolute; top: 10px; left: 10px; } .feature-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -48,7 +50,7 @@
         <p style="color: #666;">2026-01-23 | 生产力工具 v28.2 专家版</p>
     </div>
 
-    <p>天算实验室推出的 <strong>灵感简谱Pro (Muse Pro)</strong> 是一款专为音乐人打造的出版级简谱工作站。我们彻底抛弃了传统绘图工具的繁琐，通过 AI 逻辑引擎实现了<strong>物理 A4 排版锁定</strong>与<strong>歌词自动对齐</strong>，让每一份简谱都具备出版级的尊严。</p>
+    <p>天算实验室推出的 <strong>灵感简谱Pro (Muse Pro)</strong> 是一款专为音乐人打造的出版级简谱工作站。通过 AI 逻辑引擎实现了物理 A4 排版锁定与歌词自动对齐，让每一份简谱都具备出版级的尊严。</p>
 
     <div class="feature-grid">
         <div class="feature-card">
@@ -62,20 +64,20 @@
     </div>
 
     <h2>三步开启专业创作</h2>
+    <div class="step-box"><b>第一步：确立版式</b><br>在乐谱右上角直接录入词、曲作者，系统会自动完成两行对齐排版。</div>
+    <div class="step-box"><b>第二步：智能词谱对齐</b><br>录入音符后点击数字，即可垂直锁定歌词。点击现有歌词可随时修改。</div>
+    <div class="step-box"><b>第三步：安全存档与输出</b><br>定期点击“保存工程”下载 <code>.tsmuse</code> 文件。一键选择“1080P 超清导出”或直接打印。</div>
 
-    <div class="step-box">
-        <b>第一步：确立版式</b><br>
-        通过左侧“工程管理”新建项目。在乐谱右上角直接录入词、曲作者，系统会自动完成两行对齐排版。
-    </div>
-
-    <div class="step-box">
-        <b>第二步：智能词谱对齐</b><br>
-        录入音符后，直接用鼠标点击谱面上的<b>音符数字</b>，底部将呼出录入框。输入的歌词会精准垂直锁定在音符正下方。
-    </div>
-
-    <div class="step-box">
-        <b>第三步：安全存档与输出</b><br>
-        建议定期点击“保存工程”下载 <code>.tsmuse</code> 文件。完成后，一键选择“1080P 超清导出”或“打印 A4 谱稿”。
+    <h2>📡 部署指令 (Engineering Implementation)</h2>
+    <p>实验室成员如需更新或重新部署该应用，请在终端执行以下标准 Git 流：</p>
+    <div class="deploy-console">
+        <span># 进入项目目录并注入 Logo</span><br>
+        cp /home/mmm/下载/logo.jpg ./logo.jpg<br><br>
+        <span># 提交并推送至私有仓库</span><br>
+        git add index.html logo.jpg<br>
+        git commit -m "deploy: v28.2 终极部署版，锁定版式与 AI 模块"<br>
+        git push origin main<br><br>
+        <span># Netlify 将自动感知更改并触发超清 1080P 构建</span>
     </div>
 
     <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="btn-link">🚀 立即启动灵感简谱Pro 工作站</a>
@@ -85,5 +87,6 @@
         Natural Algorithm AI Lab Reserved.
     </footer>
 
+    <script src="https://ai-master-dashboard.netlify.app/inject-telemetry.js"></script>
 </body>
 </html>
