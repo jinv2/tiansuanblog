@@ -8,14 +8,13 @@
         :root { --accent: #ff7b00; --main: #0891b2; --bg: #f9f9fb; }
         body { font-family: -apple-system, "Microsoft YaHei", sans-serif; line-height: 1.6; color: #333; max-width: 850px; margin: 0 auto; padding: 40px 20px; background: var(--bg); }
         
-        /* 返回按钮 */
         .back-nav { 
             position: fixed; top: 20px; left: 20px; z-index: 1000;
             text-decoration: none; color: #666; font-size: 0.9rem; font-weight: bold;
             background: rgba(255, 255, 255, 0.8); padding: 8px 15px; border-radius: 20px;
-            backdrop-filter: blur(5px); border: 1px solid #ddd; transition: all 0.2s;
+            backdrop-filter: blur(5px); border: 1px solid #ddd; transition: 0.2s;
         }
-        .back-nav:hover { color: var(--accent); border-color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .back-nav:hover { color: var(--accent); border-color: var(--accent); }
 
         .post-header { border-bottom: 3px solid var(--main); margin-bottom: 40px; padding-bottom: 20px; text-align: center; }
         .post-header h1 { font-size: 2.4rem; color: #0f172a; margin: 10px 0; }
@@ -24,18 +23,21 @@
         h2 { border-left: 5px solid var(--main); padding-left: 15px; color: #0f172a; margin-top: 40px; }
         .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0; }
         .feature-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid #e5e5e5; }
-        .feature-card h3 { color: var(--main); margin-top: 0; font-size: 1.2rem; }
+        .feature-card h3 { color: var(--main); margin: 0 0 10px 0; font-size: 1.2rem; }
         
         .step-box { background: #fff; padding: 25px; border-radius: 12px; border-left: 5px solid var(--accent); margin: 20px 0; }
         
-        /* 部署指令模块 - 纯净版 */
-        .deploy-console { background: #1e293b; color: #38bdf8; padding: 20px; border-radius: 8px; font-family: Consolas, monospace; font-size: 0.85rem; line-height: 1.5; margin: 20px 0; border-left: 5px solid #22d3ee; }
+        /* 核心添加：隐藏折叠部署指令 */
+        details { margin: 40px 0; background: #f1f5f9; padding: 15px; border-radius: 8px; border: 1px solid #cbd5e1; }
+        summary { cursor: pointer; font-weight: bold; color: #475569; outline: none; }
+        summary:hover { color: var(--main); }
+        .deploy-console { background: #1e293b; color: #38bdf8; padding: 20px; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.85rem; line-height: 1.5; margin-top: 15px; }
         .deploy-console span { color: #94a3b8; }
 
         .btn-link { display: block; text-align: center; background: var(--main); color: white; padding: 18px; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 1.2rem; margin: 50px 0; }
         
         footer { text-align: center; padding: 40px 0; color: #999; font-size: 0.85rem; border-top: 1px solid #eee; }
-        @media (max-width: 600px) { .back-nav { position: absolute; top: 10px; left: 10px; } }
+        @media (max-width: 600px) { .back-nav { position: absolute; top: 10px; left: 10px; } .feature-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -63,20 +65,21 @@
 
     <h2>三步开启专业创作</h2>
     <div class="step-box"><b>第一步：确立版式</b><br>直接在乐谱右上角录入词、曲作者，系统会自动完成出版级排版对齐。</div>
-    <div class="step-box"><b>第二步：智能词谱对齐</b><br>录入音符后点击数字，即可呼出录入框，歌词将垂直锁定在音符正下方。</div>
-    <div class="step-box"><b>第三步：安全存档与输出</b><br>点击“保存工程”下载 <code>.tsmuse</code> 文件。支持超清 1080P 导出或直接调用打印。</div>
+    <div class="step-box"><b>第二步：智能词谱对齐</b><br>录入音符后点击数字音符，即可呼出录入框，歌词将垂直锁定在音符正下方。</div>
+    <div class="step-box"><b>第三步：安全存档与输出</b><br>定期点击“保存工程”下载 <code>.tsmuse</code> 文件。支持超清 1080P 导出或直接调用打印。</div>
 
-    <h2>📡 部署指令 (Engineering Implementation)</h2>
-    <p>实验室成员如需更新或重新部署该应用，请在终端执行以下标准 Git 流：</p>
-    <div class="deploy-console">
-        <span># 1. 进入项目根目录并注入 Logo 资产</span><br>
-        cp /home/mmm/下载/logo.jpg ./logo.jpg<br><br>
-        <span># 2. 将代码与图像同步至私有仓库</span><br>
-        git add index.html logo.jpg<br>
-        git commit -m "deploy: v28.2 终极部署版，锁定版式与 AI 模块"<br>
-        git push origin main<br><br>
-        <span># 3. 系统将感知 HEAD 变更并触发自动化超清构建</span>
-    </div>
+    <details>
+        <summary>📡 展开实验室内部部署指令 (Engineering Implementation)</summary>
+        <div class="deploy-console">
+            <span># 1. 注入 Logo 资产</span><br>
+            cp /home/mmm/下载/logo.jpg ./logo.jpg<br><br>
+            <span># 2. 同步至私有仓库</span><br>
+            git add index.html logo.jpg<br>
+            git commit -m "deploy: v28.2 终极锁定版"<br>
+            git push origin main<br><br>
+            <span># 3. 自动化超清构建将自动触发</span>
+        </div>
+    </details>
 
     <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="btn-link">🚀 立即启动灵感简谱Pro 工作站</a>
 
