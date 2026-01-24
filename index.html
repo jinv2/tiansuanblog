@@ -44,10 +44,9 @@
             transition: color 0.2s; display: flex; align-items: center; gap: 5px;
         }
         .nav-link:hover { color: var(--accent-color); }
-        /* 当前页面高亮 */
         .nav-link.active { color: var(--accent-color); }
 
-        /* 手机端适配：隐藏文字，只留图标 */
+        /* 手机端适配 */
         @media (max-width: 600px) {
             .nav-text { display: none; }
             .nav-link { font-size: 1.2rem; }
@@ -84,7 +83,6 @@
         .meta-row { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; font-size: 0.85rem; }
         .date { color: #999; }
         
-        /* 标签颜色系统 */
         .category-tag { padding: 2px 8px; border-radius: 4px; font-weight: 500; }
         .tag-release { background: #e8f5e9; color: #2e7d32; }
         .tag-dev { background: #e3f2fd; color: #1565c0; }
@@ -157,13 +155,28 @@
 
             <div class="article-card"> 
                 <div class="meta-row">
-                    <span class="category-tag tag-new">🔥 New Release</span>
+                    <span class="category-tag tag-new">🔥 Final Release</span>
+                    <span class="category-tag tag-release">Music Tech</span>
+                    <span class="date">2026-01-25</span>
+                </div>
+                <h2 class="article-title">天算AI·灵愿简谱Pro (v28.56) - 逻辑死锁·印刷级排版版正式发布</h2>
+                <p class="article-excerpt">
+                    【里程碑发布】彻底解决复杂节奏排版冲突。引入“物理领土占位”算法，实现音符与延时杠在小节内绝对平均分布；物理死锁跨拍断开逻辑，校准双行元数据对齐系统，集成全量 AI 扫描识别与 MIDI 导出模块。
+                </p>
+                <div style="margin-top: 20px;">
+                    <a href="https://samsaramuse2.netlify.app/" target="_blank" class="read-more">🚀 启动终极工作站</a>
+                    <a href="posts/muse-pro-v28-56.html" class="read-more-secondary">📖 查阅使用手册</a>
+                </div>
+            </div>
+
+            <div class="article-card"> 
+                <div class="meta-row">
                     <span class="category-tag tag-release">Music Tech</span>
                     <span class="date">2026-01-23</span>
                 </div>
                 <h2 class="article-title">天算AI·灵感简谱Pro (v28.2) - 专家级打谱引擎正式发布</h2>
                 <p class="article-excerpt">
-                    【重磅更新】本系统已进入私有化部署阶段。全面锁定物理 A4 排版标准，支持 64 分音符极速录入与智能歌词对齐系统，集成 .tsmuse 离线工程存档与另存为功能。
+                    【重磅更新】本系统已进入私有化部署阶段。全面锁定物理 A4 排版标准，支持 64 分音符极速录入与智能歌词对齐系统，集成 .tsmuse 离线工程存档。
                 </p>
                 <div style="margin-top: 20px;">
                     <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="read-more">🚀 启动工作站</a>
@@ -195,138 +208,18 @@
                 </div>
                 <h2 class="article-title">天算·生命哨兵 (BioGuard v3.5) - 智能监护系统</h2>
                 <p class="article-excerpt">
-                    【重磅发布】无需穿戴设备，旧手机秒变 24 小时 AI 护工。集成金融级活体认证、实时姿态可视化分析与自动跌倒报警系统。
+                    无需穿戴设备，旧手机秒变 24 小时 AI 护工。集成实时姿态可视化分析与自动跌倒报警系统。
                 </p>
                 <div style="margin-top: 20px;">
                     <a href="https://tiansuan-bioguard.netlify.app/" target="_blank" class="read-more">🚀 启动工具</a>
-                    <a href="posts/bioguard-manual.html" class="read-more-secondary">📖 阅读使用手册</a>
-                    <a href="https://www.bilibili.com/video/BV1edzpBDErL" target="_blank" class="read-more-secondary">🎬 观看改造实录</a>
+                    <a href="posts/bioguard-manual.html" class="read-more-secondary">📖 阅读手册</a>
                 </div>
             </div>
 
-            <a href="posts/deepseek-ai-agent-guide.html" class="article-card">
-                <div class="meta-row">
-                    <span class="category-tag tag-doc">Documentation</span>
-                    <span class="date">2026-01-21</span>
-                </div>
-                <h2 class="article-title">专属行业AI智能体使用说明（音乐 / 影视）</h2>
-                <p class="article-excerpt">
-                    专属行业AI智能体使用说明，指导客户在音乐或影视行业快速生成专业建议，无需接触 API 或配置技术。
-                </p>
-                <div style="margin-top: 15px;">
-                    <span class="read-more">阅读全文 →</span>
-                    <object><a href="https://www.bilibili.com/video/BV1GTzjBcEWK" target="_blank" class="read-more-secondary">🎬 观看效率演示</a></object>
-                </div>
-            </a>
-
-            <div class="article-card"> 
-                <div class="meta-row">
-                    <span class="category-tag tag-release">Music Tech</span>
-                    <span class="date">2026-01-20</span>
-                </div>
-                <h2 class="article-title">AI Music Agent：智能配器大师 (PWA)</h2>
-                <p class="article-excerpt">
-                    首个“只有智能体能做”的音乐生产力工具。输入主旋律，智能体通过乐理逻辑推理，自动补全四部和声 (SATB) 与配器。
-                </p>
-                <div style="margin-top: 20px;">
-                    <a href="https://music-agent-pwa.netlify.app/" target="_blank" class="read-more">🚀 启动工具</a>
-                    <a href="posts/music-agent-guide.html" class="read-more-secondary">📖 阅读教程</a>
-                    <a href="https://www.bilibili.com/video/BV1ptk5BUEM4" target="_blank" class="read-more-secondary">🎬 观看配器演示</a>
-                </div>
-            </div>
-
-            <div class="article-card">
-                <div class="meta-row">
-                    <span class="category-tag tag-release">Indie Dev</span>
-                    <span class="date">2026-01-15</span>
-                </div>
-                <h2 class="article-title">平行人生·河北篇发布：文旅与智能体的深度融合</h2>
-                <p class="article-excerpt">
-                    AlterEgo Life 系列迎来首个地方文旅版本。我们不仅仅是做攻略，而是用 AI 模拟了一个平行世界的河北。
-                </p>
-                <div style="margin-top: 20px;">
-                    <a href="https://alterego-life.netlify.app/" target="_blank" class="read-more">🚀 启动体验</a>
-                    <a href="posts/hebei-agent-release.html" class="read-more-secondary">📖 阅读全文</a>
-                    <object><a href="https://www.bilibili.com/video/BV1Aik8BbEWq" target="_blank" class="read-more-secondary">🎬 观看文旅演示</a></object>
-                </div>
-            </div>
-
-            <a href="posts/samsara-engine-release.html" class="article-card">
-                <div class="meta-row">
-                    <span class="category-tag tag-dev">Core Engine</span>
-                    <span class="date">2026-01-14</span>
-                </div>
-                <h2 class="article-title">Samsara Engine Release：轮回引擎的核心逻辑</h2>
-                <p class="article-excerpt">
-                    World Genesis 背后的驱动力。Samsara（轮回）引擎负责处理随机事件流、因果律计算以及世界线的收束。
-                </p>
-                <div style="margin-top: 15px;">
-                    <span class="read-more">阅读全文 →</span>
-                    <object><a href="https://www.bilibili.com/video/BV1CEkYBqEa8" target="_blank" class="read-more-secondary">🎬 观看视觉重构</a></object>
-                </div>
-            </a>
-
-            <div class="article-card">
-                <div class="meta-row">
-                    <span class="category-tag tag-system">System Utility</span>
-                    <span class="date">2026-01-13</span>
-                </div>
-                <h2 class="article-title">Keep Alive Launch：解决 PWA 后台存活难题</h2>
-                <p class="article-excerpt">
-                    在 iOS 和 Android 上保持 PWA 的持续运行一直是个挑战。我们发布了 Keep Alive 服务，通过静默音频流与心跳检测保活。
-                </p>
-                <div style="margin-top: 20px;">
-                    <a href="https://keep-alive-pwa.netlify.app/" target="_blank" class="read-more">🚀 启动服务</a>
-                    <a href="posts/keep-alive-launch.html" class="read-more-secondary">📖 阅读全文</a>
-                    <object><a href="https://www.bilibili.com/video/BV1SMkYB5Es5" target="_blank" class="read-more-secondary">🎬 观看保活演示</a></object>
-                </div>
-            </div>
-
-            <a href="posts/tiansuan-ai-agent.html" class="article-card">
-                <div class="meta-row">
-                    <span class="category-tag tag-release">Manifesto</span>
-                    <span class="date">2026-01-11</span>
-                </div>
-                <h2 class="article-title">天算智能体矩阵 (Tiansuan AI Agent) 正式启动</h2>
-                <p class="article-excerpt">
-                    从 Strategos 到 Scholar，我们将构建一个分工明确的智能体生态。这是关于 2026 年我们如何重新定义“人机协作”的宣言。
-                </p>
-                <div style="margin-top: 15px;">
-                    <span class="read-more">阅读全文 →</span>
-                    <object><a href="https://www.bilibili.com/video/BV1Avk8BFEhr" target="_blank" class="read-more-secondary">🎬 观看进化宣言</a></object>
-                </div>
-            </a>
-
-            <div class="article-card">
-                <div class="meta-row">
-                    <span class="category-tag tag-system">Tool Release</span>
-                    <span class="date">2026-01-09</span>
-                </div>
-                <h2 class="article-title">PWA Wifi Checkin：极简主义的远程办公打卡器</h2>
-                <p class="article-excerpt">
-                    无需下载臃肿的 App，基于 SSID 识别和地理围栏的 PWA 打卡工具。专为数字游民和分布式团队设计。
-                </p>
-                <div style="margin-top: 20px;">
-                    <a href="https://pwa-wifi-checkin.netlify.app/" target="_blank" class="read-more">🚀 启动工具</a>
-                    <a href="posts/pwa-wifi-checkin.html" class="read-more-secondary">📖 阅读全文</a>
-                </div>
-            </div>
-
-            <a href="https://ts-agent-manual.netlify.app/" target="_blank" class="article-card">
-                <div class="meta-row">
-                    <span class="category-tag tag-doc">📘 使用文档</span>
-                </div>
-                <h2 class="article-title">天算智能体通用操作手册 (Agent Manual)</h2>
-                <span class="read-more">点击跳转文档站 →</span>
-            </a>
-
+            <footer>
+                &copy; 2026 天算AI科技研发实验室
+            </footer>
         </div>
-
-        <footer>
-            &copy; 2026 天算AI科技研发实验室
-        </footer>
     </div>
-
-    <script src="https://ai-master-dashboard.netlify.app/inject-telemetry.js"></script>
 </body>
 </html>
