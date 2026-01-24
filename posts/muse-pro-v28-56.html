@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵愿简谱 Pro v28.56 使用说明 - 天算实验室</title>
+    <style>
+        :root { --accent: #22d3ee; --bg: #ffffff; --text: #1a1a1a; }
+        body { font-family: sans-serif; line-height: 1.8; color: var(--text); max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #f9fafb; }
+        .post-container { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        h1 { font-size: 2rem; border-bottom: 2px solid var(--accent); padding-bottom: 10px; }
+        h2 { font-size: 1.5rem; margin-top: 30px; color: #0891b2; }
+        .feature-tag { background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 4px; font-size: 0.9rem; margin-right: 5px; }
+        code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        .update-list { list-style: none; padding: 0; }
+        .update-list li::before { content: "✅"; margin-right: 10px; }
+        .footer { margin-top: 60px; text-align: center; color: #999; font-size: 0.8rem; }
+        .nav-back { text-decoration: none; color: var(--accent); font-weight: bold; margin-bottom: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="nav-back">← 返回实验室日志</a>
+    <div class="post-container">
+        <h1>灵愿简谱 Pro v28.56 使用手册</h1>
+        <p style="color: #666;">发布日期：2026-01-25 | 版本状态：Final Stable</p>
+
+        <p><strong>灵愿简谱 Pro (Samsara Muse Pro)</strong> 是一款基于 Web 端、深度集成物理逻辑排版算法的专家级打谱软件。v28.56 版本作为“物理纠偏”系列的终结版，完美解决了 Web 打谱中常见的间距不均与符号冲突问题。</p>
+
+        <h2>1. 核心排版技术：物理领土占位</h2>
+        <p>不同于传统的流式排版，v28.56 采用了<strong>领土均分算法</strong>：</p>
+        <ul>
+            <li><strong>绝对均分</strong>：每一小节被逻辑切分为四个相等的“拍位领土”。无论音符多寡，均会自动对齐所属拍位的几何中心。</li>
+            <li><strong>延时杠 (-) 物理占位</strong>：全音符与二分音符的延时杠不再是字符，而是独立的物理对象，确保在 4/4 拍中占据完整的节拍领土。</li>
+            <li><strong>跨拍死锁</strong>：减时线（下划线）在跨越拍位边界时会自动物理断开，确保节奏组层次清晰，告别“一根长线到底”的错误排版。</li>
+        </ul>
+
+        <h2>2. 操作指南</h2>
+        <h3>2.1 录入流程</h3>
+        <p>1. <strong>设置元数据</strong>：在顶部 Header 区域直接修改标题、副标题、调号（1=F）与词曲作者。<br>
+           2. <strong>选择时值</strong>：在左侧面板点击对应按钮（全音、二分、四分等）。<br>
+           3. <strong>修饰音符</strong>：若需录入附点音符或带有高低音点的音符，请先点亮对应的<strong>修饰模块</strong>按钮（蓝色表示激活），再点击数字键盘录入。</p>
+
+        <h3>2.2 版面微调</h3>
+        <p>利用左侧的 <strong>“布版控制”</strong> 卡片：</p>
+        <ul class="update-list">
+            <li>调整 <code>单行小节</code> 改变谱面紧凑度。</li>
+            <li>调整 <code>物理行距</code> 控制纵向呼吸感。</li>
+            <li>调整 <code>起始高度</code> 为页面顶部留出足够的歌词或插图空间。</li>
+        </ul>
+
+        <h2>3. v28.56 关键补丁说明</h2>
+        <ul class="update-list">
+            <li><strong>UI 补全</strong>：物理归位了高低音独立修饰模块与 MIDI 导出按钮。</li>
+            <li><strong>渲染纠偏</strong>：修复了 16 分音符减时线长度冲突，向内缩进 4px 实现视觉平衡。</li>
+            <li><strong>元数据分行</strong>：调号/拍号与词曲作者信息正式采用双行专业对齐布局。</li>
+        </ul>
+
+        <h2>4. 导出与存储</h2>
+        <p>系统支持 <code>.tsmuse</code> 工程格式导出，您可以随时保存工作进度并在任意设备通过“导入”功能恢复录入。成品支持 <strong>A4 切片高清导出</strong>，直接适配打印标准。</p>
+
+        <div class="footer">
+            &copy; 2026 天算AI科技研发实验室 | Natural Algorithm AI R&D Lab
+        </div>
+    </div>
+</body>
+</html>
