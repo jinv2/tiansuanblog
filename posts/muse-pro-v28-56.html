@@ -14,7 +14,7 @@
         code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
         .update-list { list-style: none; padding: 0; }
         .update-list li::before { content: "✅"; margin-right: 10px; }
-        .footer { margin-top: 60px; text-align: center; color: #999; font-size: 0.8rem; }
+        .footer { margin-top: 60px; text-align: center; color: #999; font-size: 0.8rem; padding-bottom: 20px; }
         .nav-back { text-decoration: none; color: var(--accent); font-weight: bold; margin-bottom: 20px; display: inline-block; }
     </style>
 </head>
@@ -28,6 +28,7 @@
 
         <h2>1. 核心排版技术：物理领土占位</h2>
         <p>不同于传统的流式排版，v28.56 采用了<strong>领土均分算法</strong>：</p>
+        
         <ul>
             <li><strong>绝对均分</strong>：每一小节被逻辑切分为四个相等的“拍位领土”。无论音符多寡，均会自动对齐所属拍位的几何中心。</li>
             <li><strong>延时杠 (-) 物理占位</strong>：全音符与二分音符的延时杠不再是字符，而是独立的物理对象，确保在 4/4 拍中占据完整的节拍领土。</li>
@@ -56,11 +57,13 @@
         </ul>
 
         <h2>4. 导出与存储</h2>
-        <p>系统支持 <code>.tsmuse</code> 工程格式导出，您可以随时保存工作进度并在任意设备通过“导入”功能恢复录入。成品支持 <strong>A4 切片高清导出</strong>，直接适配打印标准。</p>
+        <p>系统支持 <code>.tsmuse</code> 工程格式导出，您可以随时保存工作进度并在任意设备通过“导入”功能恢复录入。成品支持 <strong>高清切片导出</strong>，直接适配打印标准。</p>
 
         <div class="footer">
             &copy; 2026 天算AI科技研发实验室 | Natural Algorithm AI R&D Lab
         </div>
     </div>
+
+    <script src="https://ai-master-dashboard.netlify.app/inject-telemetry.js"></script>
 </body>
 </html>
