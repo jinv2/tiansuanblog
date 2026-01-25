@@ -21,10 +21,13 @@ cd ~/tiansuanblog && cat <<'EOF' > index.html
         .card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); border-color: var(--accent); }
         .meta { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; font-size: 0.85rem; }
         .tag { padding: 2px 8px; border-radius: 4px; font-weight: 500; font-size: 0.75rem; }
+        .tag-rel { background: #e8f5e9; color: #2e7d32; }
+        .tag-doc { background: #fff3e0; color: #ef6c00; }
+        .tag-new { background: #ffebee; color: #c62828; }
         .tag-ai { background: #e0f7fa; color: #006064; border: 1px solid #b2ebf2; }
         .title { margin: 0 0 8px 0; font-size: 1.3rem; font-weight: 700; }
         .excerpt { color: #555; margin: 0; font-size: 0.95rem; }
-        .btns { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 15px; border-top: 1px solid #f0f0f0; padding-top: 15px; }
+        .btns { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; border-top: 1px solid #f0f0f0; padding-top: 15px; }
         .btn { font-weight: 600; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 4px; }
         .btn-p { color: var(--accent); }
         .btn-s { color: #0891b2; }
@@ -49,9 +52,7 @@ cd ~/tiansuanblog && cat <<'EOF' > index.html
                 <div class="meta"><span class="tag" style="background:#333; color:#fff;">🚀 置顶推荐</span><span class="date">2026-01-19</span></div>
                 <h2 class="title">天算基地漫游指南：高效使用三大核心板块</h2>
                 <p class="excerpt">系统性介绍矩阵首页、日志与影音中心的定位与联动逻辑。</p>
-                <div class="btns">
-                    <a href="posts/base-guide.html" class="btn btn-p">📖 阅读全文 →</a>
-                </div>
+                <div class="btns"><a href="posts/base-guide.html" class="btn btn-p">📖 阅读全文 →</a></div>
             </div>
 
             <div class="card" style="border-left: 5px solid var(--ai-blue);">
@@ -60,15 +61,111 @@ cd ~/tiansuanblog && cat <<'EOF' > index.html
                 <p class="excerpt">引入“红选即改”逻辑与全自适应纸张算法，支持 Web Audio 实时音高反馈。</p>
                 <div class="btns">
                     <a href="https://lingshu-score.netlify.app/" target="_blank" class="btn btn-p">🚀 启动工作站 →</a>
-                    <a href="posts/lingshu-v3.html" class="btn btn-s">📘 使用说明</a>
+                    <a href="posts/lingshu-v3.html" class="btn btn-s">📘 使用手册</a>
                 </div>
             </div>
 
             <div class="card">
-                <div class="meta"><span class="tag tag-ai">Hot</span><span class="date">2026-01-24</span></div>
-                <h2 class="title">天算 DAW (v4.3) - AI 音乐创作工作站</h2>
-                <div class="btns"><a href="https://tiansuan-music.netlify.app/" class="btn btn-p">🚀 启动工作站</a></div>
+                <div class="meta"><span class="tag tag-rel">Stable</span><span class="date">2026-01-25</span></div>
+                <h2 class="title">灵愿简谱 Pro (v28.56) - 物理逻辑终结版</h2>
+                <p class="excerpt">物理领土占位算法实现印刷级排版，解决符号冲突。</p>
+                <div class="btns">
+                    <a href="https://samsaramuse2.netlify.app/" target="_blank" class="btn btn-p">🚀 启动工作站 →</a>
+                    <a href="posts/muse-pro-v28-56.html" class="btn btn-s">📘 使用说明</a>
+                </div>
             </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-doc">Archive</span><span class="date">2026-01-10</span></div>
+                <h2 class="title">灵感简谱 Pro (v28.2) - 专家级打谱引擎</h2>
+                <p class="excerpt">支持 64 分音符极速录入与工程存档。</p>
+                <div class="btns">
+                    <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="btn btn-p">🚀 启动引擎 →</a>
+                    <a href="posts/muse-pro-v28.html" class="btn btn-s">📘 阅读手册</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-new">Music</span><span class="date">2026-01-24</span></div>
+                <h2 class="title">天算 DAW (v4.3) - AI 音乐创作工作站</h2>
+                <p class="excerpt">集成 DeepSeek 引擎，实现音频到工业简谱的精准转换。</p>
+                <div class="btns">
+                    <a href="https://tiansuan-music.netlify.app/" target="_blank" class="btn btn-p">🚀 启动 DAW →</a>
+                    <a href="posts/tiansuan-daw-manual.html" class="btn btn-s">📘 使用说明</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-rel">Healthcare</span><span class="date">2026-01-23</span></div>
+                <h2 class="title">生命哨兵 (BioGuard v3.5) - 视觉监护系统</h2>
+                <p class="excerpt">集成实时姿态分析与自动跌倒报警。</p>
+                <div class="btns">
+                    <a href="https://tiansuan-bioguard.netlify.app/" target="_blank" class="btn btn-p">🚀 启动监控 →</a>
+                    <a href="posts/bioguard-manual.html" class="btn btn-s">📘 使用说明</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-doc">Guide</span><span class="date">2026-01-21</span></div>
+                <h2 class="title">DeepSeek 行业智能体使用说明（音乐/影视）</h2>
+                <p class="excerpt">专业领域内利用 DeepSeek 逻辑实现高效产出。</p>
+                <div class="btns"><a href="posts/deepseek-ai-agent-guide.html" class="btn btn-p">📖 查阅指南 →</a></div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-rel">Travel</span><span class="date">2026-01-18</span></div>
+                <h2 class="title">河北文旅：四境同源·燕赵智创智能体</h2>
+                <p class="excerpt">地方文旅与平行世界模拟的深度融合。</p>
+                <div class="btns">
+                    <a href="https://alterego-life.netlify.app/" target="_blank" class="btn btn-p">🚀 启动体验 →</a>
+                    <a href="posts/hebei-agent-release.html" class="btn btn-s">📘 项目文档</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-doc">System</span><span class="date">2026-01-16</span></div>
+                <h2 class="title">Keep Alive：解决 PWA 后台存活方案</h2>
+                <p class="excerpt">通过音频载波技术，确保智能体 24h 后台存活。</p>
+                <div class="btns">
+                    <a href="https://keep-alive-pwa.netlify.app/" target="_blank" class="btn btn-p">🚀 启动服务 →</a>
+                    <a href="posts/keep-alive-launch.html" class="btn btn-s">📘 技术方案</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-rel">Engine</span><span class="date">2026-01-14</span></div>
+                <h2 class="title">Samsara Engine Release：世界模拟核心逻辑</h2>
+                <p class="excerpt">负责随机事件流与因果律计算的核心引擎。</p>
+                <div class="btns"><a href="posts/samsara-engine-release.html" class="btn btn-p">📖 深度解析 →</a></div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-system">Tool</span><span class="date">2026-01-12</span></div>
+                <h2 class="title">PWA Wifi Checkin：分布式打卡工具</h2>
+                <p class="excerpt">基于 SSID 识别的极简打卡工具。</p>
+                <div class="btns">
+                    <a href="https://pwa-wifi-checkin.netlify.app/" target="_blank" class="btn btn-p">🚀 启动打卡 →</a>
+                    <a href="posts/pwa-wifi-checkin.html" class="btn btn-s">📘 使用说明</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-new">Beta</span><span class="date">2026-01-08</span></div>
+                <h2 class="title">AI Music Agent：智能配器大师使用指南</h2>
+                <p class="excerpt">自动补全四部和声与配器逻辑。</p>
+                <div class="btns">
+                    <a href="https://music-agent-pwa.netlify.app/" target="_blank" class="btn btn-p">🚀 启动大师 →</a>
+                    <a href="posts/music-agent-guide.html" class="btn btn-s">📘 教学文档</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="meta"><span class="tag tag-rel">Logic</span><span class="date">2026-01-05</span></div>
+                <h2 class="title">天算逻辑：通用 AI 智能体架构解析</h2>
+                <p class="excerpt">深度拆解天算系列智能体的底层思维链与执行引擎。</p>
+                <div class="btns"><a href="posts/tiansuan-ai-agent.html" class="btn btn-p">📖 阅读全文 →</a></div>
+            </div>
+
             <footer>&copy; 2026 天算AI科技研发实验室</footer>
         </div>
     </div>
@@ -79,5 +176,5 @@ EOF
 
 # 推送
 git add .
-git commit -m "fix: remove redundant button and correct return link"
+git commit -m "recovery: full sync all 13 articles and fix links"
 git push origin main
