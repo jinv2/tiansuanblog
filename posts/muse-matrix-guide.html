@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天算简谱套件 - 核心矩阵使用指南</title>
+    <style>
+        :root {
+            --primary: #00f2fe;
+            --primary-glow: rgba(0, 242, 254, 0.3);
+            --bg: #0d0d0f;
+            --panel: #16161a;
+            --text-main: #e0e0e0;
+            --text-dim: #888888;
+            --border: #333333;
+        }
+        body {
+            font-family: "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: var(--text-main);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* 科技感顶部导航 */
+        .top-nav {
+            background: rgba(22, 22, 26, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .back-link { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-size: 0.9em; 
+            font-weight: 600; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-transform: uppercase;
+        }
+        .back-link:hover { text-shadow: 0 0 8px var(--primary); }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px;
+            background: var(--panel);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        h1 { font-size: 2.2em; margin-bottom: 30px; color: #fff; letter-spacing: -1px; text-align: center; }
+        
+        .matrix-intro { text-align: center; color: var(--text-dim); margin-bottom: 40px; font-size: 0.95em; }
+
+        /* 应用模块 */
+        .app-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+        .app-card:hover { border-color: var(--primary); background: rgba(0, 242, 254, 0.03); }
+        
+        .app-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .app-icon { font-size: 2em; }
+        .app-info h2 { margin: 0; font-size: 1.4em; color: var(--primary); }
+        .app-tag { font-size: 0.7em; background: #333; padding: 2px 8px; border-radius: 4px; color: #aaa; text-transform: uppercase; }
+        
+        .app-desc { font-size: 0.95em; margin: 15px 0; color: var(--text-main); }
+        .app-url { font-family: 'Consolas', monospace; color: var(--text-dim); font-size: 0.85em; margin-bottom: 15px; display: block; }
+        
+        .launch-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #000;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        .launch-btn:hover { box-shadow: 0 0 15px var(--primary); transform: translateY(-1px); }
+
+        footer { margin-top: 60px; text-align: center; font-size: 0.85em; color: var(--text-dim); border-top: 1px solid var(--border); padding: 30px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav">
+        <a href="https://tiansuanblog.netlify.app/" class="back-link">
+            <span>←</span> SYSTEM_BACK / 返回实验室日志首页
+        </a>
+    </div>
+
+    <div class="container">
+        <h1>天算简谱矩阵套件指南</h1>
+        <div class="matrix-intro">数字化打谱全流程解决方案 - 2026 核心发布</div>
+
+        <div class="app-card">
+            <div class="app-header">
+                <span class="app-icon">🛰️</span>
+                <div class="app-info">
+                    <h2>灵枢简谱 v3.0 <span class="app-tag">AI 指挥中心</span></h2>
+                </div>
+            </div>
+            <div class="app-desc">最新的旗舰级工作站，引入“红选即改”逻辑。支持 100% 全自适应画布与 Web Audio 实时采样反馈，是简谱创作的数字化指挥塔。</div>
+            <code class="app-url">URL: https://lingshu-score.netlify.app/</code>
+            <a href="https://lingshu-score.netlify.app/" target="_blank" class="launch-btn">🚀 启动指挥中心</a>
+        </div>
+
+        <div class="app-card">
+            <div class="app-header">
+                <span class="app-icon">🔗</span>
+                <div class="app-info">
+                    <h2>灵犀简谱 <span class="app-tag">协作联动版</span></h2>
+                </div>
+            </div>
+            <div class="app-desc">专为极速录入与多端协同设计。内置键盘心流操作逻辑，通过 Shift/Alt 快捷修饰符实现无需鼠标的高速打谱体验。</div>
+            <code class="app-url">URL: https://muse-link-ai.netlify.app/</code>
+            <a href="https://muse-link-ai.netlify.app/" target="_blank" class="launch-btn">🚀 启动协作版</a>
+        </div>
+
+        <div class="app-card">
+            <div class="app-header">
+                <span class="app-icon">🏛️</span>
+                <div class="app-info">
+                    <h2>灵愿简谱 Pro <span class="app-tag">v28.56 终极站</span></h2>
+                </div>
+            </div>
+            <div class="app-desc">基于物理领土占位算法的印刷级软件。彻底攻克 Web 端减时线冲突与符号对齐难题，确保生成谱面达到商用出版标准。</div>
+            <code class="app-url">URL: https://samsaramuse2.netlify.app/</code>
+            <a href="https://samsaramuse2.netlify.app/" target="_blank" class="launch-btn">🏛️ 启动终极站</a>
+        </div>
+
+        <div class="app-card">
+            <div class="app-header">
+                <span class="app-icon">🎼</span>
+                <div class="app-info">
+                    <h2>灵感简谱 Pro <span class="app-tag">v28.2 引擎版</span></h2>
+                </div>
+            </div>
+            <div class="app-desc">专家级高密度引擎。支持全维度节奏录入（包含 64 分音符），适配大规模音乐资产的管理与导出，是工业级创作的稳固后方。</div>
+            <code class="app-url">URL: https://tiansuan-music-engine.netlify.app/</code>
+            <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="launch-btn">🎼 启动引擎站</a>
+        </div>
+
+        <footer>
+            <p>算法驱动创作 · 天算简谱矩阵</p>
+            <p>Natural Algorithm AI R&D Lab | 版权所有 © 2026</p>
+        </footer>
+
+    </div>
+
+    <script src="https://ai-master-dashboard.netlify.app/inject-telemetry.js"></script>
+</body>
+</html>
