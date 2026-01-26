@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>天算简谱套件 - 核心矩阵使用指南</title>
+    <title>天算简谱矩阵 - 四大核心软件使用全指南</title>
     <style>
         :root {
             --primary: #00f2fe;
@@ -13,20 +13,21 @@
             --text-main: #e0e0e0;
             --text-dim: #888888;
             --border: #333333;
+            --card-bg: rgba(255, 255, 255, 0.02);
         }
         body {
-            font-family: "Segoe UI", Roboto, sans-serif;
-            line-height: 1.7;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            line-height: 1.8;
             color: var(--text-main);
             background-color: var(--bg);
             margin: 0;
             padding: 0;
         }
         
-        /* 科技感顶部导航 */
+        /* 顶部导航 */
         .top-nav {
-            background: rgba(22, 22, 26, 0.9);
-            backdrop-filter: blur(12px);
+            background: rgba(22, 22, 26, 0.95);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border);
             padding: 15px 20px;
             position: sticky;
@@ -43,123 +44,154 @@
             gap: 8px;
             max-width: 900px;
             margin: 0 auto;
-            text-transform: uppercase;
         }
-        .back-link:hover { text-shadow: 0 0 8px var(--primary); }
 
         .container {
             max-width: 900px;
-            margin: 30px auto;
+            margin: 40px auto;
             padding: 40px;
             background: var(--panel);
-            border-radius: 16px;
+            border-radius: 20px;
             border: 1px solid var(--border);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
 
-        h1 { font-size: 2.2em; margin-bottom: 30px; color: #fff; letter-spacing: -1px; text-align: center; }
-        
-        .matrix-intro { text-align: center; color: var(--text-dim); margin-bottom: 40px; font-size: 0.95em; }
+        h1 { font-size: 2.6em; margin-bottom: 20px; color: #fff; letter-spacing: -1px; text-align: center; }
+        .summary-desc { text-align: center; color: var(--text-dim); margin-bottom: 50px; font-size: 1.1em; border-bottom: 1px solid #333; padding-bottom: 30px; }
 
-        /* 应用模块 */
+        /* 使用说明板块 */
+        .guide-section { margin-bottom: 60px; }
         .app-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            transition: all 0.3s;
+            background: var(--card-bg);
+            border-left: 4px solid var(--primary);
+            padding: 30px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 40px;
         }
-        .app-card:hover { border-color: var(--primary); background: rgba(0, 242, 254, 0.03); }
         
-        .app-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .app-icon { font-size: 2em; }
-        .app-info h2 { margin: 0; font-size: 1.4em; color: var(--primary); }
-        .app-tag { font-size: 0.7em; background: #333; padding: 2px 8px; border-radius: 4px; color: #aaa; text-transform: uppercase; }
-        
-        .app-desc { font-size: 0.95em; margin: 15px 0; color: var(--text-main); }
-        .app-url { font-family: 'Consolas', monospace; color: var(--text-dim); font-size: 0.85em; margin-bottom: 15px; display: block; }
-        
+        .guide-title { font-size: 1.6em; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+        .app-status { font-size: 0.6em; background: var(--primary); color: #000; padding: 2px 8px; border-radius: 4px; vertical-align: middle; }
+
+        .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 20px 0; }
+        .usage-item b { color: var(--primary); display: block; margin-bottom: 5px; }
+        .usage-item p { margin: 0; font-size: 0.9em; color: #ccc; }
+
+        .action-area { display: flex; align-items: center; justify-content: space-between; margin-top: 25px; padding-top: 20px; border-top: 1px dashed #444; }
+        .app-url { font-family: 'Consolas', monospace; font-size: 0.85em; color: var(--text-dim); }
         .launch-btn {
-            display: inline-block;
             background: var(--primary);
             color: #000;
             text-decoration: none;
-            padding: 10px 24px;
+            padding: 10px 25px;
             border-radius: 6px;
             font-weight: bold;
-            transition: all 0.2s;
+            transition: 0.3s;
         }
-        .launch-btn:hover { box-shadow: 0 0 15px var(--primary); transform: translateY(-1px); }
+        .launch-btn:hover { box-shadow: 0 0 20px var(--primary-glow); transform: scale(1.05); }
 
-        footer { margin-top: 60px; text-align: center; font-size: 0.85em; color: var(--text-dim); border-top: 1px solid var(--border); padding: 30px 0; }
+        footer { text-align: center; color: var(--text-dim); padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.9em; }
     </style>
 </head>
 <body>
 
     <div class="top-nav">
         <a href="https://tiansuanblog.netlify.app/" class="back-link">
-            <span>←</span> SYSTEM_BACK / 返回实验室日志首页
+            <span>←</span> SYSTEM_BACK / 返回博客首页
         </a>
     </div>
 
     <div class="container">
-        <h1>天算简谱矩阵套件指南</h1>
-        <div class="matrix-intro">数字化打谱全流程解决方案 - 2026 核心发布</div>
+        <h1>天算简谱矩阵使用说明</h1>
+        <div class="summary-desc">本指南汇总了天算实验室旗下的四大核心简谱软件，帮助您根据创作场景选择最匹配的数字化工具。</div>
 
-        <div class="app-card">
-            <div class="app-header">
-                <span class="app-icon">🛰️</span>
-                <div class="app-info">
-                    <h2>灵枢简谱 v3.0 <span class="app-tag">AI 指挥中心</span></h2>
+        <div class="guide-section">
+            <div class="app-card">
+                <div class="guide-title">🛰️ 灵枢简谱 v3.0 <span class="app-status">数字化指挥中心</span></div>
+                <p><b>场景定位：</b> 个人快速创作、旋律精修、全平台适配打谱。</p>
+                <div class="usage-grid">
+                    <div class="usage-item">
+                        <b>红选即改逻辑</b>
+                        <p>鼠标点击任意音符变红进入编辑态，直接按键盘数字 1-7 即可更正音符，无需删除重录。</p>
+                    </div>
+                    <div class="usage-item">
+                        <b>全自适应排版</b>
+                        <p>纸张宽度随浏览器窗口实时自动拉伸，左右 100% 贴边，确保第 8 小节永不溢出视线。</p>
+                    </div>
+                </div>
+                <div class="action-area">
+                    <span class="app-url">lingshu-score.netlify.app</span>
+                    <a href="https://lingshu-score.netlify.app/" target="_blank" class="launch-btn">🚀 启动应用</a>
                 </div>
             </div>
-            <div class="app-desc">最新的旗舰级工作站，引入“红选即改”逻辑。支持 100% 全自适应画布与 Web Audio 实时采样反馈，是简谱创作的数字化指挥塔。</div>
-            <code class="app-url">URL: https://lingshu-score.netlify.app/</code>
-            <a href="https://lingshu-score.netlify.app/" target="_blank" class="launch-btn">🚀 启动指挥中心</a>
         </div>
 
-        <div class="app-card">
-            <div class="app-header">
-                <span class="app-icon">🔗</span>
-                <div class="app-info">
-                    <h2>灵犀简谱 <span class="app-tag">协作联动版</span></h2>
+        <div class="guide-section">
+            <div class="app-card" style="border-left-color: #f0abfc;">
+                <div class="guide-title">🔗 灵犀简谱 <span class="app-status" style="background:#f0abfc;">协作联动版</span></div>
+                <p><b>场景定位：</b> 手机/电脑跨端协作、灵感瞬间捕捉、心流式盲打。</p>
+                <div class="usage-grid">
+                    <div class="usage-item">
+                        <b>心流录入系统</b>
+                        <p>专为键盘重度用户设计，通过 Shift 和 Alt 键配合数字实现高频音符、附点、弧线的连贯操作。</p>
+                    </div>
+                    <div class="usage-item">
+                        <b>多端实时同步</b>
+                        <p>支持多设备数据同步，在手机上录入动机，在电脑上完成排版精修。</p>
+                    </div>
+                </div>
+                <div class="action-area">
+                    <span class="app-url">muse-link-ai.netlify.app</span>
+                    <a href="https://muse-link-ai.netlify.app/" target="_blank" class="launch-btn" style="background:#f0abfc;">🚀 启动协作</a>
                 </div>
             </div>
-            <div class="app-desc">专为极速录入与多端协同设计。内置键盘心流操作逻辑，通过 Shift/Alt 快捷修饰符实现无需鼠标的高速打谱体验。</div>
-            <code class="app-url">URL: https://muse-link-ai.netlify.app/</code>
-            <a href="https://muse-link-ai.netlify.app/" target="_blank" class="launch-btn">🚀 启动协作版</a>
         </div>
 
-        <div class="app-card">
-            <div class="app-header">
-                <span class="app-icon">🏛️</span>
-                <div class="app-info">
-                    <h2>灵愿简谱 Pro <span class="app-tag">v28.56 终极站</span></h2>
+        <div class="guide-section">
+            <div class="app-card" style="border-left-color: #22d3ee;">
+                <div class="guide-title">🏛️ 灵愿简谱 Pro <span class="app-status" style="background:#22d3ee;">v28.56 终极站</span></div>
+                <p><b>场景定位：</b> 商业出版、印刷级稿件制作、复杂符号对齐。</p>
+                <div class="usage-grid">
+                    <div class="usage-item">
+                        <b>物理领土算法</b>
+                        <p>自动计算每个音符、减时线、延时杠的物理占位，彻底杜绝 Web 端排版常见的符号重叠问题。</p>
+                    </div>
+                    <div class="usage-item">
+                        <b>印刷标准导出</b>
+                        <p>生成的 PDF 或 PNG 严格遵循物理 A4 标准，支持专业级的调号、词曲作者双行对齐布局。</p>
+                    </div>
+                </div>
+                <div class="action-area">
+                    <span class="app-url">samsaramuse2.netlify.app</span>
+                    <a href="https://samsaramuse2.netlify.app/" target="_blank" class="launch-btn" style="background:#22d3ee;">🚀 启动终极站</a>
                 </div>
             </div>
-            <div class="app-desc">基于物理领土占位算法的印刷级软件。彻底攻克 Web 端减时线冲突与符号对齐难题，确保生成谱面达到商用出版标准。</div>
-            <code class="app-url">URL: https://samsaramuse2.netlify.app/</code>
-            <a href="https://samsaramuse2.netlify.app/" target="_blank" class="launch-btn">🏛️ 启动终极站</a>
         </div>
 
-        <div class="app-card">
-            <div class="app-header">
-                <span class="app-icon">🎼</span>
-                <div class="app-info">
-                    <h2>灵感简谱 Pro <span class="app-tag">v28.2 引擎版</span></h2>
+        <div class="guide-section">
+            <div class="app-card" style="border-left-color: #fbbf24;">
+                <div class="guide-title">🎼 灵感简谱 Pro <span class="app-status" style="background:#fbbf24;">v28.2 引擎版</span></div>
+                <p><b>场景定位：</b> 极限密度作品（32/64分音符）、超大规模音乐资产管理。</p>
+                <div class="usage-grid">
+                    <div class="usage-item">
+                        <b>全维度节奏引擎</b>
+                        <p>支持从全音符到 64 分音符的完整节奏录入，内置自动减时线避让算法，高密度下依然清晰。</p>
+                    </div>
+                    <div class="usage-item">
+                        <b>工业级资产存档</b>
+                        <p>适配大规模音乐数据库，支持完善的工程文件保存与 MIDI 数据流映射。 </p>
+                    </div>
+                </div>
+                <div class="action-area">
+                    <span class="app-url">tiansuan-music-engine.netlify.app</span>
+                    <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="launch-btn" style="background:#fbbf24;">🚀 启动引擎</a>
                 </div>
             </div>
-            <div class="app-desc">专家级高密度引擎。支持全维度节奏录入（包含 64 分音符），适配大规模音乐资产的管理与导出，是工业级创作的稳固后方。</div>
-            <code class="app-url">URL: https://tiansuan-music-engine.netlify.app/</code>
-            <a href="https://tiansuan-music-engine.netlify.app/" target="_blank" class="launch-btn">🎼 启动引擎站</a>
         </div>
 
         <footer>
-            <p>算法驱动创作 · 天算简谱矩阵</p>
-            <p>Natural Algorithm AI R&D Lab | 版权所有 © 2026</p>
+            <p>数字化创作主权归还创作者 · 天算 AI 科技研发实验室</p>
+            <p>Copyright © 2026 Natural Algorithm AI R&D Lab</p>
         </footer>
-
     </div>
 
     <script src="https://ai-master-dashboard.netlify.app/inject-telemetry.js"></script>
