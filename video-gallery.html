@@ -1,4 +1,4 @@
-cat > video-gallery.html << 'EOF'
+cd ~/tiansuanblog && cat <<'EOF' > video-gallery.html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -6,126 +6,43 @@ cat > video-gallery.html << 'EOF'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>天算影音中心 - Tiansuan Video Gallery</title>
     <style>
-        :root {
-            --accent-color: #ff7b00;
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --border-color: #e5e5e5;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0; padding: 0; background: var(--bg-color); color: var(--text-color); line-height: 1.6;
-        }
-        
-        /* --- 统一导航栏样式 --- */
-        nav {
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky; top: 0; z-index: 1000;
-        }
-        .nav-container {
-            max-width: 1000px; margin: 0 auto; padding: 0 20px;
-            display: flex; justify-content: space-between; align-items: center; height: 60px;
-        }
-        
-        /* Logo */
-        .logo { 
-            font-weight: 700; color: #000; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 1.1rem;
-        }
+        :root { --accent-color: #ff7b00; --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #e5e5e5; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1000px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 60px; }
+        .logo { font-weight: 700; color: #000; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
         .logo img { height: 32px; width: auto; border-radius: 6px; display: block; }
-        
-        /* 导航按钮组 */
         .nav-group { display: flex; gap: 20px; align-items: center; }
-        .nav-link {
-            text-decoration: none; color: #666; font-size: 0.9rem; font-weight: 600;
-            transition: color 0.2s; display: flex; align-items: center; gap: 5px;
-        }
-        .nav-link:hover { color: var(--accent-color); }
-        .nav-link.active { color: var(--accent-color); }
-
-        /* 手机端适配 */
-        @media (max-width: 600px) {
-            .nav-text { display: none; }
-            .nav-link { font-size: 1.2rem; }
-            .nav-group { gap: 15px; }
-            .logo span { display: none; }
-        }
-
-        /* --- 页面内容样式 --- */
+        .nav-link { text-decoration: none; color: #666; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; display: flex; align-items: center; gap: 5px; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-color); }
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
         h1 { margin-bottom: 50px; text-align: center; }
-
-        .section-title {
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px; margin: 60px 0 30px 0; font-size: 1.5rem; display: flex; align-items: center; justify-content: space-between;
-        }
+        .section-title { border-left: 5px solid var(--accent-color); padding-left: 15px; margin: 60px 0 30px 0; font-size: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
         .section-desc { font-size: 0.9rem; color: #666; font-weight: normal; }
-
-        /* 通用视频网格 */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
-        
-        .video-card {
-            border-radius: 12px; overflow: hidden; position: relative; background: #000; aspect-ratio: 16 / 9;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s;
-        }
+        .video-card { border-radius: 12px; overflow: hidden; position: relative; background: #000; aspect-ratio: 16 / 9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s; }
         .video-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.15); }
         .video-card iframe { width: 100%; height: 100%; border: none; }
-        
-        .card-overlay {
-            position: absolute; bottom: 0; left: 0; width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            color: #fff; padding: 15px; font-size: 0.95rem; pointer-events: none; font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-        }
-
-        /* 长视频/回放布局 */
-        .feature-layout {
-            display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px;
-            background: #f9f9f9; padding: 30px; border-radius: 20px; border: 1px solid #eee;
-        }
+        .card-overlay { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; padding: 15px; font-size: 0.95rem; pointer-events: none; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+        .feature-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px; background: #f9f9f9; padding: 30px; border-radius: 20px; border: 1px solid #eee; }
         .feature-video { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; overflow: hidden; }
         .feature-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
         .feature-content h3 { margin-top: 0; margin-bottom: 15px; font-size: 1.3rem; }
         .feature-content p { color: #555; margin-bottom: 20px; }
         .btn { display: inline-block; padding: 10px 24px; background: #000; color: #fff; text-decoration: none; border-radius: 30px; font-size: 0.9rem; font-weight: 600; }
         .btn:hover { background: var(--accent-color); }
-
-        /* --- 底部居中修正 --- */
-        footer {
-            text-align: center;
-            display: block;
-            width: 100%;
-            margin-top: 80px;
-            color: #999;
-            font-size: 0.85rem;
-            padding-bottom: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .feature-layout { grid-template-columns: 1fr; padding: 20px; }
-            .video-grid { grid-template-columns: 1fr; }
-        }
+        footer { text-align: center; width: 100%; margin-top: 80px; color: #999; font-size: 0.85rem; padding-bottom: 40px; }
+        @media (max-width: 768px) { .feature-layout { grid-template-columns: 1fr; padding: 20px; } .video-grid { grid-template-columns: 1fr; } .logo span { display: none; } }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="nav-container">
-            <a href="https://tiansuanai.netlify.app/" class="logo">
-                <img src="logo.jpg" alt="Logo">
-                <span>天算AI</span>
-            </a>
-            
+            <a href="https://tiansuanai.netlify.app/" class="logo"><img src="logo.jpg"><span>天算AI</span></a>
             <div class="nav-group">
-                <a href="https://tiansuanai.netlify.app/" class="nav-link">
-                    🏠 <span class="nav-text">矩阵首页</span>
-                </a>
-                <a href="https://tiansuanblog.netlify.app/" class="nav-link">
-                    📘 <span class="nav-text">实验室日志</span>
-                </a>
-                <a href="https://tiansuanblog.netlify.app/video-gallery.html" class="nav-link active">
-                    🎬 <span class="nav-text">影音中心</span>
-                </a>
+                <a href="https://tiansuanai.netlify.app/" class="nav-link">🏠 矩阵首页</a>
+                <a href="https://tiansuanblog.netlify.app/" class="nav-link">📘 实验室日志</a>
+                <a href="https://tiansuanblog.netlify.app/video-gallery.html" class="nav-link active">🎬 影音中心</a>
             </div>
         </div>
     </nav>
@@ -139,58 +56,47 @@ cat > video-gallery.html << 'EOF'
         </div>
         
         <div class="video-grid">
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1edzpBDErL&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">📱 零成本改造：旧手机变身 24小时AI 护工</div>
+                <div class="card-overlay">📱 旧手机变身 24小时AI 护工</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1GTzjBcEWK&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">⚡ DeepSeek AI：音乐与影视创作从未如此高效</div>
+                <div class="card-overlay">⚡ DeepSeek AI：音乐与影视创作</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1hkzGBSE2G&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">⚡ 矩阵导览：AI 不该是聊天框 (2026)</div>
+                <div class="card-overlay">⚡ 矩阵导览：AI 不该是聊天框</div>
             </div>
-            
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1ptk5BUEM4&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">🎹 DeepSeek 逻辑配器实录 (Bach对位法)</div>
+                <div class="card-overlay">🎹 DeepSeek 逻辑配器实录</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1DNkYBjEN6&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">🧬 智能进化：2026 重新定义人机协作</div>
+                <div class="card-overlay">🧬 智能进化：重新定义人机协作</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1SMkYB5Es5&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">💓 KeepAlive：1小时复刻“死了么”</div>
+                <div class="card-overlay">💓 KeepAlive：复刻“死了么”</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1Aik8BbEWq&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">🏔️ 文旅应用：AI 发现燕赵大地 (演示)</div>
+                <div class="card-overlay">🏔️ 文旅应用：AI 发现燕赵大地</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1Avk8BFEhr&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">⚡ 核心演示：人类进化宣言</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1Avk8BFErN&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">🧠 智能体演示：31次迭代进化</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1Pvk8BFETk&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">🎹 音乐生成：数字永生演示</div>
             </div>
         </div>
-
 
         <div class="section-title">
             📱 AI Shorts / AI 短视频
@@ -198,37 +104,46 @@ cat > video-gallery.html << 'EOF'
         </div>
         
         <div class="video-grid">
-            
+            <div class="video-card" style="border: 2px solid var(--accent-color);">
+                <iframe src="//player.bilibili.com/player.html?bvid=BV1mWzaBeEiG&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
+                <div class="card-overlay">⚡ 简谱矩阵：终结“小米加步枪”</div>
+            </div>
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1T3zWBrEnC&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">⚡ 硅基哨兵：旧手机变光学神经</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1Htk5BUEC5&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">🎼 AI短视频：智能体配器演示</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1F1kaBcE5j&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">🌌 天算矩阵：AI 生态全景</div>
             </div>
-
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1CEkYBqEa8&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">✨ 四境同源：AI 视觉重构</div>
             </div>
-            
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1SMkYB5Ej9&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">🎥 视觉大片：大美河北 (AI Short)</div>
             </div>
         </div>
 
-
         <div class="section-title">
             🔴 Live Replay / 直播回放
             <span class="section-desc">深度技术分享与实录</span>
+        </div>
+
+        <div class="feature-layout" style="border: 2px solid #00f2fe;">
+            <div class="feature-video">
+                <iframe src="//player.bilibili.com/player.html?bvid=BV1tWzaBeE5U&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
+            </div>
+            <div class="feature-content">
+                <h3>⚡ 回放：简谱矩阵全矩阵实操指南</h3>
+                <p>深度展示四大打谱矩阵的逻辑协同，实录如何从零开始利用“红选即改”与“物理算法”完成工业级乐谱制作。</p>
+                <a href="https://www.bilibili.com/video/BV1tWzaBeE5U" target="_blank" class="btn">观看完整实录</a>
+            </div>
         </div>
 
         <div class="feature-layout">
@@ -237,19 +152,8 @@ cat > video-gallery.html << 'EOF'
             </div>
             <div class="feature-content">
                 <h3>⚡ 回放：《AI 不该是聊天框》· 2026 矩阵上线</h3>
-                <p>2026 年，天算智能体矩阵 (Tiansuan AI Agent) 正式上线。本场直播深度解析为何 AI 应当超越对话框，成为真正的生产力智能体，并展示了矩阵的核心架构与未来愿景。</p>
+                <p>2026 年，天算智能体矩阵正式上线。解析为何 AI 应当超越对话框，展示矩阵的核心架构。</p>
                 <a href="https://www.bilibili.com/video/BV13pzVBpEbR" target="_blank" class="btn">观看完整回放</a>
-            </div>
-        </div>
-
-        <div class="feature-layout">
-            <div class="feature-video">
-                <iframe src="//player.bilibili.com/player.html?bvid=BV1CEkYBqEeb&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-            </div>
-            <div class="feature-content">
-                <h3>⚡ 回放：《四境同源》· 创意不再是苦旅</h3>
-                <p>本场直播深度复盘了“四境同源”项目的创作过程。探讨了当 AI 接管繁琐重复劳动后，创作者如何利用算力爆发实现真正的创意自由。</p>
-                <a href="https://www.bilibili.com/video/BV1CEkYBqEeb" target="_blank" class="btn">观看完整回放</a>
             </div>
         </div>
 
@@ -257,13 +161,12 @@ cat > video-gallery.html << 'EOF'
             &copy; 2026 天算AI科技研发实验室
         </footer>
     </div>
-
     <script src="https://ai-master-dashboard.netlify.app/inject-telemetry.js"></script>
 </body>
 </html>
 EOF
 
-# 推送
+# 推送同步
 git add video-gallery.html
-git commit -m "feat: complete video gallery with telemetry"
-git push
+git commit -m "feat: add matrix core videos and live replay"
+git push origin main
