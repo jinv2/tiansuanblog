@@ -56,9 +56,13 @@ cd ~/tiansuanblog && cat <<'EOF' > video-gallery.html
         </div>
         
         <div class="video-grid">
+            <div class="video-card" style="border: 2px solid var(--accent-color);">
+                <iframe src="//player.bilibili.com/player.html?bvid=BV1mWzaBeEiG&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
+                <div class="card-overlay">⚡ 简谱矩阵：终结“小米加步枪”时代</div>
+            </div>
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1edzpBDErL&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">📱 旧手机变身 24小时AI 护工</div>
+                <div class="card-overlay">📱 零成本改造：旧手机变身 24小时AI 护工</div>
             </div>
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1GTzjBcEWK&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
@@ -104,10 +108,6 @@ cd ~/tiansuanblog && cat <<'EOF' > video-gallery.html
         </div>
         
         <div class="video-grid">
-            <div class="video-card" style="border: 2px solid var(--accent-color);">
-                <iframe src="//player.bilibili.com/player.html?bvid=BV1mWzaBeEiG&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
-                <div class="card-overlay">⚡ 简谱矩阵：终结“小米加步枪”</div>
-            </div>
             <div class="video-card">
                 <iframe src="//player.bilibili.com/player.html?bvid=BV1T3zWBrEnC&high_quality=1&danmaku=0" scrolling="no" frameborder="0"></iframe>
                 <div class="card-overlay">⚡ 硅基哨兵：旧手机变光学神经</div>
@@ -166,7 +166,7 @@ cd ~/tiansuanblog && cat <<'EOF' > video-gallery.html
 </html>
 EOF
 
-# 推送同步
+# 推送
 git add video-gallery.html
-git commit -m "feat: add matrix core videos and live replay"
+git commit -m "fix: relocate matrix tutorial to tutorials section"
 git push origin main
